@@ -12,7 +12,7 @@ title: |
         | Subtítulo
         | Subtítulo
 author:
-- name: Nombre de el/la estudiante
+- name: Marcos Antonio González Reyes
   affiliation: Afiliación, normalmente algo tal que "Estudiante, Universidad Autónoma de Santo Domingo (UASD)"
 abstract: "Resumen del manuscrito"
 keywords: "palabra clave 1, palabra clave 2"
