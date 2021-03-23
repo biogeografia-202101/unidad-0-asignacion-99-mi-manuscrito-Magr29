@@ -13,7 +13,7 @@ source('biodata/funciones.R')
 
 #' ### Área de cargar datos
 #' Censo (el objeto se carga con prefijo "censo") y matriz de comunidad (prefijo "mc")
-load('biodata/Arecc.Rdata')
+load('biodata/Arecaceae.Rdata')
 load('biodata/matriz_ambiental.Rdata') #Matriz ambiental, se carga como "bci_env_grid"
 
 #' ### Imprimir datos en pantalla (impresiones parciales con head)
@@ -46,7 +46,7 @@ summary(rowSums(mc_arecc)) # Resumen estadístico
 
 #' ### Abundancia por especie
 sort(colSums(mc_arecc))
-summary(colSums(mc_apcyn_melic_saptc)) # Resumen estadístico
+summary(colSums(mc_arecc)) # Resumen estadístico
 
 #' ### Riqueza numérica de toda la "comunidad"
 specnumber(colSums(mc_arecc))
@@ -65,3 +65,4 @@ abun_sp
 #' ### Un gráfico para el manuscrito
 #' Gráfico de mosaicos de la abundancia por especie por cuadros
 abun_sp_q <- crear_grafico_mosaico_de_mc(mc_arecc, tam_rotulo = 6)
+abun_sp_q
