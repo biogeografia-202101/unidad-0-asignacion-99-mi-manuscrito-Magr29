@@ -30,8 +30,8 @@ header-includes:
   \newcommand{\elandscape}{\end{landscape}}
 ---
 
-```{r, include=FALSE}
-source("Arecaceae_aed1.R", local = knitr::knit_global())
+```{r, include = FALSE}
+source("Arecaceae_aed_1.R", local = knitr::knit_global())
 ```
 
 # Introducción
@@ -48,7 +48,10 @@ Es un estudio a largo plazo cuando documenta los procesos importantes que compon
 
 # Metodología
 
-\ldots
+(ver figura \ref{fig:mapa_cuadros})
+
+![Área de estudio, parcela de 50ha, Isla Barro Colorado.
+\label{fig:mapa_cuadros}](mapa_cuadros.png){width=50%}
 
 # Resultados
 
@@ -63,6 +66,26 @@ knitr::kable(abun_sp,
 abun_sp_q
 ```
 
+![Mapa de abundancia global.
+\label{fig:mapa_cuadros_abun_global}](mapa_cuadros_abun_global.png){width=50%}
+
+![Mapa de riqueza global.
+\label{fig:mapa_cuadros_riq_global}](mapa_cuadros_riq_global.png){width=50%}
+
+![Mapa de abundancia de especies de la familia Arecaceae.
+\label{fig:mapa_cuadros_abun_mi_familia}](mapa_cuadros_abun_mi_familia.png){width=50%}
+
+![Mapa de riqueza de especies de la familia Arecaceae.
+\label{fig:mapa_cuadros_riq_mi_familia}](mapa_cuadros_riq_mi_familia.png){width=50%}
+
+![Mapa de pendiente, parcela de 50ha.
+\label{fig:mapa_cuadros_pendiente}](mapa_cuadros_pendiente.png){width=50%}
+
+![Mapa de nitrógeno, parcela de 50ha.
+\label{fig:mapa_cuadros_nitrógeno}](mapa_cuadros_nit.png){width=50%}
+
+![Mapa de pH, parcela de 50ha.
+\label{fig:mapa_cuadros_pH}](mapa_cuadros_ph.png){width=50%}
 
 # Discusión
 
