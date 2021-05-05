@@ -44,25 +44,32 @@ Esto se conoce como Long-Term Monitoring, puede ser definido como el levantamien
 
 Es un estudio a largo plazo cuando documenta los procesos importantes que componen el ecosistema o el tiempo de generación del organismo dominante, así, su duración se mide con la velocidad dinámica del sistema que se está estudiando [@franklin1989importance].
 
-
-
 # Metodología
 
-(ver figura \ref{fig:mapa_cuadros})
+El área de estudio es la parcela de 50ha en Isla Barro Colorado,localizada en el Lago Gatún en Panamá [@Hubbell2005Barro](ver figura \ref{fig:mapa_cuadros}). Cuenta con una extensión de terreno de 54km^2, cada hectarea tiene 1km^2; la familia de plantas a examinar es Arecaceae Schultz Sch. Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes vegan [@VeganPack], tidyverse [@Tidyverse], sf[@sfpackage], mapview[@MapView], leaflet [@Leaflet], y scripts del repositorio "Scripts de análisis de BCI" [@jose_ramon_martinez_batlle_2020_4402362].
+
+También se realizarán análisis exploratorios de datos, determinación de presencia-ausencia y abundancia de especies de la familia. Mediciones de asociación, análisis de agrupamiento y diversidad [@Biodiv].
+
+@RSoft, R es un lenguaje y un entorno para la computación y los gráficos estadísticos, proporciona una amplia variedad de técnicas estadísticas (modelado lineal y no lineal, pruebas estadísticas clásicas, análisis de series de tiempo, clasificación, agrupamiento, etc.) y técnicas gráficas, y es altamente extensible, uno de los puntos fuertes de R es la facilidad con la que se pueden producir gráficos con calidad de publicación bien diseñados, incluidos símbolos matemáticos y fórmulas cuando sea necesario .
+
+@VeganPack, El paquete vegan proporciona herramientas para la ecología descriptiva de comunidades. Tiene las funciones más básicas de análisis de diversidad, ordenación de comunidades y análisis de disimilitud. La mayoría de sus herramientas multivariadas también se pueden utilizar para otros tipos de datos.
+
+@Leaflet, se puede crear y personalizar mapas interactivos usando la librería de JavaScript y el paquete 'htmlwidgets'.
 
 ![Área de estudio, parcela de 50ha, Isla Barro Colorado.
 \label{fig:mapa_cuadros}](mapa_cuadros.png){width=50%}
 
 # Resultados
 
+Se muestran los resultados del estudio realizado a la familia Arecaceae en la parcela de 50ha de Barro Colorado
 Tabla \ref{tab:abun_sp} y figura \ref{fig:abun_sp_q}
 
 ```{r, echo=FALSE}
 knitr::kable(abun_sp,
-             caption = "\\label{tab:abun_sp}Abundancia de individiuos por especie de la familia Arecaceae")
+             caption = "\\label{tab:abun_sp}Abundancia de individiuos por especie de la familia Arecaceae.")
 ```
 
-```{r, echo=FALSE, fig.cap="\\label{fig:abun_sp_q}Abundancia por especie por cuadrante"}
+```{r, echo=FALSE, fig.cap="\\label{fig:abun_sp_q}Abundancia de individuos por especie en cada cuadrante."}
 abun_sp_q
 ```
 
@@ -72,7 +79,7 @@ abun_sp_q
 ![Mapa de riqueza global.
 \label{fig:mapa_cuadros_riq_global}](mapa_cuadros_riq_global.png){width=50%}
 
-![Mapa de abundancia de especies de la familia Arecaceae.
+![Mapa de abundancia de individuos por cuadrante de la familia Arecaceae.
 \label{fig:mapa_cuadros_abun_mi_familia}](mapa_cuadros_abun_mi_familia.png){width=50%}
 
 ![Mapa de riqueza de especies de la familia Arecaceae.

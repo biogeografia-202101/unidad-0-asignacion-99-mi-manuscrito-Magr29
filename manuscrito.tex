@@ -38,7 +38,17 @@
 
 \setcounter{secnumdepth}{3}
 
+\usepackage{longtable,booktabs}
 
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
 \title{Título\\
 Subtítulo\\
@@ -180,14 +190,14 @@ alrededor de 15 países, que estudian los bosques tropicales y la
 metología estandarizada en grandes parcelas permanentes, siendo Barro
 Colorado la primer gran parcela en ser establecida, censada por primera
 vez en los años 1981-1983 (Condit, 1998). Esto con el fin de recolectar
-y analizar datos ecológicos a fin de monitorear la dinámica de
-poblaciones y la diversidad en localidades permanentes a largo plazo.
+y analizar datos ecológicos para monitorear la dinámica de poblaciones y
+la diversidad en localidades permanentes a largo plazo.
 
 Esto se conoce como Long-Term Monitoring, puede ser definido como el
 levantamiento de datos durante determinado período de tiempo en áreas
 contaminadas o con un alto índice de pérdida de especies. En palabras de
 Lindenmayer \& Likens (2010), son las mediciones empíricas repetidas
-basadas en el campo se recopilan continuamente y luego se analizan
+basadas en el campo, se recopilan continuamente y luego se analizan
 durante al menos 10 años.
 
 Es un estudio a largo plazo cuando documenta los procesos importantes
@@ -197,11 +207,129 @@ sistema que se está estudiando (Franklin, 1989).
 
 \section{Metodología}\label{metodologuxeda}
 
-\ldots
+El área de estudio es la parcela de 50ha en Isla Barro
+Colorado,localizada en el Lago Gatún en Panamá (Hubbell, Condit, \&
+Foster, 2005)(ver figura \ref{fig:mapa_cuadros}). Cuenta con una
+extensión de terreno de 54km\^{}2, cada hectarea tiene 1km\^{}2; la
+familia de plantas a examinar es Arecaceae Schultz Sch. Para este
+estudio se utilizó el software estadístico R (R Core Team, 2020), los
+paquetes vegan (Oksanen et al., 2019), tidyverse (Wickham, 2017),
+sf(Pebesma, 2018), mapview(Appelhans, Detsch, Reudenbach, \& Woellauer,
+2019), leaflet (Cheng, Karambelkar, \& Xie, 2018), y scripts del
+repositorio ``Scripts de análisis de BCI'' (Batlle, 2020).
+
+También se realizarán análisis exploratorios de datos, determinación de
+presencia-ausencia y abundancia de especies de la familia. Mediciones de
+asociación, análisis de agrupamiento y diversidad (R. Kindt \& Coe,
+2005).
+
+R Core Team (2020), R es un lenguaje y un entorno para la computación y
+los gráficos estadísticos, proporciona una amplia variedad de técnicas
+estadísticas (modelado lineal y no lineal, pruebas estadísticas
+clásicas, análisis de series de tiempo, clasificación, agrupamiento,
+etc.) y técnicas gráficas, y es altamente extensible, uno de los puntos
+fuertes de R es la facilidad con la que se pueden producir gráficos con
+calidad de publicación bien diseñados, incluidos símbolos matemáticos y
+fórmulas cuando sea necesario .
+
+Oksanen et al. (2019), El paquete vegan proporciona herramientas para la
+ecología descriptiva de comunidades. Tiene las funciones más básicas de
+análisis de diversidad, ordenación de comunidades y análisis de
+disimilitud. La mayoría de sus herramientas multivariadas también se
+pueden utilizar para otros tipos de datos.
+
+Cheng et al. (2018), se puede crear y personalizar mapas interactivos
+usando la librería de JavaScript y el paquete `htmlwidgets'.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros.png}
+\caption{Área de estudio, parcela de 50ha, Isla Barro Colorado.
+\label{fig:mapa_cuadros}}
+\end{figure}
 
 \section{Resultados}\label{resultados}
 
-\ldots
+Se muestran los resultados del estudio realizado a la familia Arecaceae
+en la parcela de 50ha de Barro Colorado Tabla \ref{tab:abun_sp} y figura
+\ref{fig:abun_sp_q}
+
+\begin{longtable}[]{@{}lr@{}}
+\caption{\label{tab:abun_sp}Abundancia de individiuos por especie de la
+familia Arecaceae.}\tabularnewline
+\toprule
+Latin & n\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Latin & n\tabularnewline
+\midrule
+\endhead
+Oenocarpus mapora & 1802\tabularnewline
+Socratea exorrhiza & 500\tabularnewline
+Astrocaryum standleyanum & 152\tabularnewline
+Bactris major & 112\tabularnewline
+Attalea butyracea & 32\tabularnewline
+Elaeis oleifera & 20\tabularnewline
+Bactris coloniata & 10\tabularnewline
+Bactris barronis & 5\tabularnewline
+Chamaedorea tepejilote & 4\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{figure}
+\centering
+\includegraphics{manuscrito_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:abun_sp_q}Abundancia de individuos por especie en
+cada cuadrante.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_abun_global.png}
+\caption{Mapa de abundancia global.
+\label{fig:mapa_cuadros_abun_global}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_riq_global.png}
+\caption{Mapa de riqueza global. \label{fig:mapa_cuadros_riq_global}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_abun_mi_familia.png}
+\caption{Mapa de abundancia de individuos por cuadrante de la familia
+Arecaceae. \label{fig:mapa_cuadros_abun_mi_familia}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_riq_mi_familia.png}
+\caption{Mapa de riqueza de especies de la familia Arecaceae.
+\label{fig:mapa_cuadros_riq_mi_familia}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_pendiente.png}
+\caption{Mapa de pendiente, parcela de 50ha.
+\label{fig:mapa_cuadros_pendiente}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_nit.png}
+\caption{Mapa de nitrógeno, parcela de 50ha.
+\label{fig:mapa_cuadros_nitrógeno}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_cuadros_ph.png}
+\caption{Mapa de pH, parcela de 50ha. \label{fig:mapa_cuadros_pH}}
+\end{figure}
 
 \section{Discusión}\label{discusiuxf3n}
 
@@ -220,6 +348,21 @@ reproducible}{Script reproducible}}\label{script-reproducible}
 \addcontentsline{toc}{section}{Referencias}
 
 \hypertarget{refs}{}
+\hypertarget{ref-MapView}{}
+Appelhans, T., Detsch, F., Reudenbach, C., \& Woellauer, S. (2019).
+\emph{Mapview: Interactive viewing of spatial data in r}. Retrieved from
+\url{https://CRAN.R-project.org/package=mapview}
+
+\hypertarget{ref-jose_ramon_martinez_batlle_2020_4402362}{}
+Batlle, J. R. M. (2020). biogeografia-master/scripts-de-analisis-BCI:
+Long coding sessions (Version v0.0.0.9000).
+\url{https://doi.org/10.5281/zenodo.4402362}
+
+\hypertarget{ref-Leaflet}{}
+Cheng, J., Karambelkar, B., \& Xie, Y. (2018). \emph{Leaflet: Create
+interactive web maps with the javascript 'leaflet' library}. Retrieved
+from \url{https://CRAN.R-project.org/package=leaflet}
+
 \hypertarget{ref-condit1998tropical}{}
 Condit, R. (1998). \emph{Tropical forest census plots: Methods and
 results from barro colorado island, panama and a comparison with other
@@ -230,10 +373,40 @@ Franklin, J. F. (1989). Importance and justification of long-term
 studies in ecology. In \emph{Long-term studies in ecology} (pp. 3--19).
 Springer.
 
+\hypertarget{ref-Hubbell2005Barro}{}
+Hubbell, S., Condit, R., \& Foster, R. (2005). \emph{Forest census plot
+on barro colorado island}.
+\url{http://ctfs.si.edu/webatlas/datasets/bci/}.
+
+\hypertarget{ref-Biodiv}{}
+Kindt, R., \& Coe, R. (2005). \emph{Tree diversity analysis. a manual
+and software for common statistical methods for ecological and
+biodiversity studies}. Retrieved from
+\url{http://www.worldagroforestry.org/output/tree-diversity-analysis}
+
 \hypertarget{ref-lindenmayer2010science}{}
 Lindenmayer, D. B., \& Likens, G. E. (2010). The science and application
 of ecological monitoring. \emph{Biological Conservation}, \emph{143}(6),
 1317--1328.
+
+\hypertarget{ref-VeganPack}{}
+Oksanen, J., Blanchet, F. G., Friendly, M., Kindt, R., Legendre, P.,
+McGlinn, D., \ldots{} Wagner, H. (2019). \emph{Vegan: Community ecology
+package}. Retrieved from \url{https://CRAN.R-project.org/package=vegan}
+
+\hypertarget{ref-sfpackage}{}
+Pebesma, E. (2018). Simple Features for R: Standardized Support for
+Spatial Vector Data. \emph{The R Journal}, \emph{10}(1), 439--446.
+\url{https://doi.org/10.32614/RJ-2018-009}
+
+\hypertarget{ref-RSoft}{}
+R Core Team. (2020). \emph{R: A language and environment for statistical
+computing}. Retrieved from \url{https://www.R-project.org/}
+
+\hypertarget{ref-Tidyverse}{}
+Wickham, H. (2017). \emph{Tidyverse: Easily install and load the
+'tidyverse'}. Retrieved from
+\url{https://CRAN.R-project.org/package=tidyverse}
 
 
 
