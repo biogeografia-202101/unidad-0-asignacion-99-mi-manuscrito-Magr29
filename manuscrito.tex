@@ -50,9 +50,10 @@
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 
-\title{Título\\
-Subtítulo\\
-Subtítulo  }
+\title{Inventario de las poblaciones de la familia Arecaceae presentes en la
+paracela permanente de 50ha, Barro Colorado.\\
+Estudio poblacional, biodiversidad, agrupamiento y asociación.\\
+Ecología numérica con R  }
 
 
 
@@ -103,10 +104,11 @@ Subtítulo  }
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={Marcos Antonio González Reyes (Estudiante, Universidad Autónoma de Santo Domingo (UASD))},
-             pdfkeywords = {Arecaceae, BCI},  
-            pdftitle={Título\\
-Subtítulo\\
-Subtítulo},
+             pdfkeywords = {Arecaceae, BCI, Lago Gatún, Panamá},  
+            pdftitle={Inventario de las poblaciones de la familia Arecaceae presentes en la
+paracela permanente de 50ha, Barro Colorado.\\
+Estudio poblacional, biodiversidad, agrupamiento y asociación.\\
+Ecología numérica con R},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -165,7 +167,7 @@ Subtítulo},
 \noindent Resumen del manuscrito
 
 
-\vskip 8.5pt \noindent \emph{Keywords}: Arecaceae, BCI \par
+\vskip 8.5pt \noindent \emph{Keywords}: Arecaceae, BCI, Lago Gatún, Panamá \par
 
     \hbox{\vrule height .2pt width 39.14pc}
 
@@ -209,19 +211,34 @@ sistema que se está estudiando (Franklin, 1989).
 
 El área de estudio es la parcela de 50ha en Isla Barro
 Colorado,localizada en el Lago Gatún en Panamá (Hubbell, Condit, \&
-Foster, 2005)(ver figura \ref{fig:mapa_cuadros}). Cuenta con una
+Foster, 2005) (ver figura \ref{fig:mapa_cuadros}). Cuenta con una
 extensión de terreno de 54km\^{}2, cada hectarea tiene 1km\^{}2; la
 familia de plantas a examinar es Arecaceae Schultz Sch. Para este
 estudio se utilizó el software estadístico R (R Core Team, 2020), los
 paquetes vegan (Oksanen et al., 2019), tidyverse (Wickham, 2017),
 sf(Pebesma, 2018), mapview(Appelhans, Detsch, Reudenbach, \& Woellauer,
-2019), leaflet (Cheng, Karambelkar, \& Xie, 2018), y scripts del
+2019), leaflet (Cheng, Karambelkar, \& Xie, 2018), ez(Lawrence, 2016),
+psych(Revelle, 2019), adespatial (Dray et al., 2020), y scripts del
 repositorio ``Scripts de análisis de BCI'' (Batlle, 2020).
 
-También se realizarán análisis exploratorios de datos, determinación de
-presencia-ausencia y abundancia de especies de la familia. Mediciones de
-asociación, análisis de agrupamiento y diversidad (R. Kindt \& Coe,
-2005).
+También se realizaron análisis exploratorios de datos, determinación de
+presencia-ausencia y abundancia/riqueza de especies de la familia, para
+observar en cuales sitios había mayor o menor número de especies y
+cuales sitios presentaron las abundancias más altas o más bajas;
+análisis de agrupamiento, para determinar cuales sitios compartían
+similitudes y características que los pudieran identificar como grupo.
+Mediciones de asociación, con el fin de explorar las variables
+(geomorfologicas, ambientales, suelo, etc.) asociadas a distintas
+especies y sitios; diversidad biológica para evaluar como están
+estructuradas las comuniades en los sitios muestrados (R. Kindt \& Coe,
+2005); y ecología espacial que nos permite evaluar la autocorrelación
+inherente al área de estudio.
+
+Se utilizó una matriz ambiental con los datos generales del área
+muestreada, una tabla censal de la familia estudiada; índices de
+Jaccard, transformada de Hellinger, Bootstrap, y distancia Euclidea para
+el estudio de biodiversidad, agrupamiento y determinar que sitios tienen
+las mayores probablidades de formar clusters.
 
 R Core Team (2020), R es un lenguaje y un entorno para la computación y
 los gráficos estadísticos, proporciona una amplia variedad de técnicas
@@ -232,14 +249,30 @@ fuertes de R es la facilidad con la que se pueden producir gráficos con
 calidad de publicación bien diseñados, incluidos símbolos matemáticos y
 fórmulas cuando sea necesario .
 
-Oksanen et al. (2019), El paquete vegan proporciona herramientas para la
-ecología descriptiva de comunidades. Tiene las funciones más básicas de
-análisis de diversidad, ordenación de comunidades y análisis de
-disimilitud. La mayoría de sus herramientas multivariadas también se
-pueden utilizar para otros tipos de datos.
+El paquete vegan proporciona herramientas para la ecología descriptiva
+de comunidades. Tiene las funciones más básicas de análisis de
+diversidad, ordenación de comunidades y análisis de disimilitud. La
+mayoría de sus herramientas multivariadas también se pueden utilizar
+para otros tipos de datos (Oksanen et al., 2019).
 
-Cheng et al. (2018), se puede crear y personalizar mapas interactivos
-usando la librería de JavaScript y el paquete `htmlwidgets'.
+Con el paquete `leaflet' se pueden crear y personalizar mapas
+interactivos usando la librería de JavaScript y el paquete `htmlwidgets'
+(Cheng et al., 2018).
+
+Paquete `ez', las funciones de este paquete tienen como objetivo
+proporcionar una especificación simple, intuitiva y coherente de
+análisis y visualización de datos; las funciones de visualización
+también incluyen la visualización del diseño para la auditoría de datos
+previos al análisis y la visualización de la matriz de correlación;
+finalmente, este paquete incluye funciones para el análisis no
+paramétrico, incluidas las pruebas de permutación y remuestreo bootstrap
+(Lawrence, 2016).
+
+Paquete `psych', utilizado para el análisis multivariado y la
+construcción de escalas utilizando análisis factorial, análisis de
+componentes principales, análisis de conglomerados y análisis de
+confiabilidad, aunque otras proporcionan estadísticas descriptivas
+básicas (Revelle, 2019).
 
 \begin{figure}
 \centering
@@ -251,8 +284,19 @@ usando la librería de JavaScript y el paquete `htmlwidgets'.
 \section{Resultados}\label{resultados}
 
 Se muestran los resultados del estudio realizado a la familia Arecaceae
-en la parcela de 50ha de Barro Colorado Tabla \ref{tab:abun_sp} y figura
-\ref{fig:abun_sp_q}
+en la parcela de 50ha de Barro Colorado.
+
+En la Tabla \ref{tab:abun_sp} se muestran las especies presentes en la
+parcela permanete y la abundancia de individuos de cada especie, siendo
+Oenocarpus mapora la especie con el mayor número de individuos y
+Chamaedorea tepejilote la especie con el menor número de individuos; la
+figura \ref{fig:abun_sp_q} resume los datos, mostrando la distribución
+de las especies en la parcela, la cantidad de individuos de las especies
+presentes en cada sitio y cuales especies tienen mayor o menor presencia
+en el área de estudio, donde Oenocarpus mapora es la especie que mayor
+presencia presenta, se encuentra en todos los sitios muestreados, y
+Elaeis oleifera la especie con menor presencia, solo encontrada en 3
+sitios de muestreo.
 
 \begin{longtable}[]{@{}lr@{}}
 \caption{\label{tab:abun_sp}Abundancia de individiuos por especie de la
@@ -368,6 +412,12 @@ Condit, R. (1998). \emph{Tropical forest census plots: Methods and
 results from barro colorado island, panama and a comparison with other
 plots}. Springer Science \& Business Media.
 
+\hypertarget{ref-adespatial}{}
+Dray, S., Bauman, D., Blanchet, G., Borcard, D., Clappe, S., Guenard,
+G., \ldots{} Wagner, H. H. (2020). \emph{Adespatial: Multivariate
+multiscale spatial analysis}. Retrieved from
+\url{https://CRAN.R-project.org/package=adespatial}
+
 \hypertarget{ref-franklin1989importance}{}
 Franklin, J. F. (1989). Importance and justification of long-term
 studies in ecology. In \emph{Long-term studies in ecology} (pp. 3--19).
@@ -383,6 +433,11 @@ Kindt, R., \& Coe, R. (2005). \emph{Tree diversity analysis. a manual
 and software for common statistical methods for ecological and
 biodiversity studies}. Retrieved from
 \url{http://www.worldagroforestry.org/output/tree-diversity-analysis}
+
+\hypertarget{ref-EZ}{}
+Lawrence, M. A. (2016). \emph{Ez: Easy analysis and visualization of
+factorial experiments}. Retrieved from
+\url{https://CRAN.R-project.org/package=ez}
 
 \hypertarget{ref-lindenmayer2010science}{}
 Lindenmayer, D. B., \& Likens, G. E. (2010). The science and application
@@ -402,6 +457,11 @@ Spatial Vector Data. \emph{The R Journal}, \emph{10}(1), 439--446.
 \hypertarget{ref-RSoft}{}
 R Core Team. (2020). \emph{R: A language and environment for statistical
 computing}. Retrieved from \url{https://www.R-project.org/}
+
+\hypertarget{ref-psych}{}
+Revelle, W. (2019). \emph{Psych: Procedures for psychological,
+psychometric, and personality research}. Retrieved from
+\url{https://CRAN.R-project.org/package=psych}
 
 \hypertarget{ref-Tidyverse}{}
 Wickham, H. (2017). \emph{Tidyverse: Easily install and load the

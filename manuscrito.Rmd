@@ -8,14 +8,14 @@ output:
     template: svm-latex-ms.tex
     number_sections: true
 title: | 
-        | Título
-        | Subtítulo
-        | Subtítulo
+        | Inventario de las poblaciones de la familia Arecaceae presentes en la paracela permanente de 50ha, Barro Colorado. 
+        | Estudio poblacional, biodiversidad, agrupamiento y asociación.
+        | Ecología numérica con R
 author:
 - name: Marcos Antonio González Reyes
   affiliation: Estudiante, Universidad Autónoma de Santo Domingo (UASD)
 abstract: "Resumen del manuscrito"
-keywords: "Arecaceae, BCI"
+keywords: "Arecaceae, BCI, Lago Gatún, Panamá"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
 fontfamily: mathpazo
@@ -46,23 +46,30 @@ Es un estudio a largo plazo cuando documenta los procesos importantes que compon
 
 # Metodología
 
-El área de estudio es la parcela de 50ha en Isla Barro Colorado,localizada en el Lago Gatún en Panamá [@Hubbell2005Barro](ver figura \ref{fig:mapa_cuadros}). Cuenta con una extensión de terreno de 54km^2, cada hectarea tiene 1km^2; la familia de plantas a examinar es Arecaceae Schultz Sch. Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes vegan [@VeganPack], tidyverse [@Tidyverse], sf[@sfpackage], mapview[@MapView], leaflet [@Leaflet], y scripts del repositorio "Scripts de análisis de BCI" [@jose_ramon_martinez_batlle_2020_4402362].
+El área de estudio es la parcela de 50ha en Isla Barro Colorado,localizada en el Lago Gatún en Panamá [@Hubbell2005Barro] (ver figura \ref{fig:mapa_cuadros}). Cuenta con una extensión de terreno de 54km^2, cada hectarea tiene 1km^2; la familia de plantas a examinar es Arecaceae Schultz Sch. Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes vegan [@VeganPack], tidyverse [@Tidyverse], sf[@sfpackage], mapview[@MapView], leaflet [@Leaflet], ez[@EZ], psych[@psych], adespatial [@adespatial], y scripts del repositorio "Scripts de análisis de BCI" [@jose_ramon_martinez_batlle_2020_4402362].
 
-También se realizarán análisis exploratorios de datos, determinación de presencia-ausencia y abundancia de especies de la familia. Mediciones de asociación, análisis de agrupamiento y diversidad [@Biodiv].
+También se realizaron análisis exploratorios de datos, determinación de presencia-ausencia y abundancia/riqueza de especies de la familia, para observar en cuales sitios había mayor o menor número de especies y cuales sitios presentaron las abundancias más altas o más bajas; análisis de agrupamiento, para determinar cuales sitios compartían similitudes y características que los pudieran identificar como grupo. Mediciones de asociación, con el fin de explorar las variables (geomorfologicas, ambientales, suelo, etc.) asociadas a distintas especies y sitios; diversidad biológica para evaluar como están estructuradas las comuniades en los sitios muestrados [@Biodiv]; y ecología espacial que nos permite evaluar la autocorrelación inherente al área de estudio.
+
+Se utilizó una matriz ambiental con los datos generales del área muestreada, una tabla censal de la familia estudiada; índices de Jaccard, transformada de Hellinger, Bootstrap, y distancia Euclidea para el estudio de biodiversidad, agrupamiento y determinar que sitios tienen las mayores probablidades de formar clusters.
 
 @RSoft, R es un lenguaje y un entorno para la computación y los gráficos estadísticos, proporciona una amplia variedad de técnicas estadísticas (modelado lineal y no lineal, pruebas estadísticas clásicas, análisis de series de tiempo, clasificación, agrupamiento, etc.) y técnicas gráficas, y es altamente extensible, uno de los puntos fuertes de R es la facilidad con la que se pueden producir gráficos con calidad de publicación bien diseñados, incluidos símbolos matemáticos y fórmulas cuando sea necesario .
 
-@VeganPack, El paquete vegan proporciona herramientas para la ecología descriptiva de comunidades. Tiene las funciones más básicas de análisis de diversidad, ordenación de comunidades y análisis de disimilitud. La mayoría de sus herramientas multivariadas también se pueden utilizar para otros tipos de datos.
+El paquete vegan proporciona herramientas para la ecología descriptiva de comunidades. Tiene las funciones más básicas de análisis de diversidad, ordenación de comunidades y análisis de disimilitud. La mayoría de sus herramientas multivariadas también se pueden utilizar para otros tipos de datos [@VeganPack].
 
-@Leaflet, se puede crear y personalizar mapas interactivos usando la librería de JavaScript y el paquete 'htmlwidgets'.
+Con el paquete 'leaflet' se pueden crear y personalizar mapas interactivos usando la librería de JavaScript y el paquete 'htmlwidgets' [@Leaflet].
+
+Paquete 'ez', las funciones de este paquete tienen como objetivo proporcionar una especificación simple, intuitiva y coherente de análisis y visualización de datos; las funciones de visualización también incluyen la visualización del diseño para la auditoría de datos previos al análisis y la visualización de la matriz de correlación; finalmente, este paquete incluye funciones para el análisis no paramétrico, incluidas las pruebas de permutación y remuestreo bootstrap [@EZ].
+
+Paquete 'psych', utilizado para el análisis multivariado y la construcción de escalas utilizando análisis factorial, análisis de componentes principales, análisis de conglomerados y análisis de confiabilidad, aunque otras proporcionan estadísticas descriptivas básicas [@psych].
 
 ![Área de estudio, parcela de 50ha, Isla Barro Colorado.
 \label{fig:mapa_cuadros}](mapa_cuadros.png){width=50%}
 
 # Resultados
 
-Se muestran los resultados del estudio realizado a la familia Arecaceae en la parcela de 50ha de Barro Colorado
-Tabla \ref{tab:abun_sp} y figura \ref{fig:abun_sp_q}
+Se muestran los resultados del estudio realizado a la familia Arecaceae en la parcela de 50ha de Barro Colorado.
+
+En la Tabla \ref{tab:abun_sp} se muestran las especies presentes en la parcela permanete y la abundancia de individuos de cada especie, siendo Oenocarpus mapora la especie con el mayor número de individuos y Chamaedorea tepejilote la especie con el menor número de individuos; la figura \ref{fig:abun_sp_q} resume los datos, mostrando la distribución de las especies en la parcela, la cantidad de individuos de las especies presentes en cada sitio y cuales especies tienen mayor o menor presencia en el área de estudio, donde Oenocarpus mapora es la especie que mayor presencia presenta, se encuentra en todos los sitios muestreados, y Elaeis oleifera la especie con menor presencia, solo encontrada en 3 sitios de muestreo.
 
 ```{r, echo=FALSE}
 knitr::kable(abun_sp,
