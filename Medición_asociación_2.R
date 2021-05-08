@@ -54,6 +54,13 @@ mi_fam_t_chi_d %>% tidy
 #' 
 coldiss(mi_fam_t_chi_d, diag = TRUE)
 #'
+png(
+  filename = 'matriz_asociacion_especies.png',
+  width = 2400, height = 1200, pointsize = 32
+)
+coldiss(mi_fam_t_chi_d, diag = TRUE)
+dev.off()
+#'
 #' En el mapa de calor **ordenado** (el de la derecha), se identifica al menos un patrón de dependencia entre las especies relacionadas en la diagonal desde *Chrysophyllum cainito* hasta *Trichilia pallida* (cuadros de color rosa centrales). También se observan las especies que no parecen asociarse con otras, situadas en los extremos de la diagonal, y relacionadas con otras por medio de valores pequeños de distancia (cuadros azules), como *Rauvolfia littoralis* y *Pouteria fossicola* y *Cedrela odorata*.
 #' 
 #' ### Modo R para datos binarios (presencia/ausencia)
@@ -63,6 +70,13 @@ coldiss(mi_fam_t_chi_d, diag = TRUE)
 mi_fam_t_jac <- vegdist(mi_fam_t, "jaccard", binary = TRUE)
 mi_fam_t_jac %>% tidy
 coldiss(mi_fam_t_jac, diag = TRUE)
+#'
+png(
+  filename = 'matriz_distancia_especies.png',
+  width = 2400, height = 1200, pointsize = 32
+)
+coldiss(mi_fam_t_jac, diag = TRUE)
+dev.off()
 #'
 #' ### Modo R para datos cuantitativos, NO de abundancia de especies (variables ambientales)
 #' 
