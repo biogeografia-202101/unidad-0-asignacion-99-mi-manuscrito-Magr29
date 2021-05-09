@@ -209,17 +209,13 @@ sistema que se está estudiando (Franklin, 1989).
 
 \section{Metodología}\label{metodologuxeda}
 
+\subsection{Área de estudio}\label{uxe1rea-de-estudio}
+
 El área de estudio es la parcela de 50ha en Isla Barro
 Colorado,localizada en el Lago Gatún en Panamá (Hubbell, Condit, \&
 Foster, 2005) (ver figura \ref{fig:mapa_cuadros}). Cuenta con una
 extensión de terreno de 54km\^{}2, cada hectarea tiene 1km\^{}2; la
-familia de plantas a examinar es Arecaceae Schultz Sch. Para este
-estudio se utilizó el software estadístico R (R Core Team, 2020), los
-paquetes vegan (Oksanen et al., 2019), tidyverse (Wickham, 2017),
-sf(Pebesma, 2018), mapview(Appelhans, Detsch, Reudenbach, \& Woellauer,
-2019), leaflet (Cheng, Karambelkar, \& Xie, 2018), ez(Lawrence, 2016),
-psych(Revelle, 2019), adespatial (Dray et al., 2020), y scripts del
-repositorio ``Scripts de análisis de BCI'' (Batlle, 2020).
+familia de plantas a examinar es Arecaceae Schultz Sch.
 
 \begin{figure}
 \centering
@@ -227,6 +223,16 @@ repositorio ``Scripts de análisis de BCI'' (Batlle, 2020).
 \caption{Área de estudio, parcela de 50ha, Isla Barro Colorado.
 \label{fig:mapa_cuadros}}
 \end{figure}
+
+\subsection{Materiales y métodos}\label{materiales-y-muxe9todos}
+
+Para este estudio se utilizó el software estadístico R (R Core Team,
+2020), los paquetes vegan (Oksanen et al., 2019), tidyverse (Wickham,
+2017), sf(Pebesma, 2018), mapview(Appelhans, Detsch, Reudenbach, \&
+Woellauer, 2019), leaflet (Cheng, Karambelkar, \& Xie, 2018),
+ez(Lawrence, 2016), psych(Revelle, 2019), adespatial (Dray et al.,
+2020), y scripts del repositorio ``Scripts de análisis de BCI'' (Batlle,
+2020).
 
 También se realizaron análisis exploratorios de datos, determinación de
 presencia-ausencia y abundancia/riqueza de especies de la familia, para
@@ -392,6 +398,72 @@ manera negativa con el Aluminio. El grado mas alto de asociacion estuvo
 entre el Calcio y el Magnesio, figura
 \ref{fig:matriz_correlacion_suelo_abun_riq_spearman}.
 
+\subsection{Análisis de agrupamiento}\label{anuxe1lisis-de-agrupamiento}
+
+En la figura \ref{fig:Cluster_Euclideandistance_Ward} se muestran los
+sitios que tienen una alta probabilidad de formar grupos, representados
+en rectangulos de color azul, donde se forma un gran grupo con 27
+sitios, tres grupos de tamaño medio con 7, 6 y 5 sitios, y dos grupos
+pequeños con 2 y 3 sitios cada uno. En el la figura
+\ref{fig:mapa_ward_k5} se muestra la distribución de estos grupos dentro
+de la parcela de 50ha de BCI. La distribución de los grupos es
+aleatoria, los grupos no se presentan de manera continua dentro de la
+parcela de 50ha de BCI, sino que, se visualizan de manera dispersa, esto
+puede deberse a distintas variables.
+
+En la figura \ref{fig:Grupos_Ward_k5_variables} se observa la asociación
+de variables a la distribución de estos grupos, destacando las
+asociaciones de las variables pH, Zinc, Magnesio, Manganeso, Fósforo,
+Aluminio, Nitrógeno, Curvatura, Pendiente, UTM y Hombrera. Los sitios
+pertenecientes al grupo cuatro tienen marcada asociaión con variables de
+suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables
+de suelo tiene valores de asociación bajos; con variables
+ambientales/geomorfológicas como (Riqueza global, Vertiente,
+Heterogeneidad ambiental y Pendiente media) presenta altos grados de
+dependencia.
+
+Mediante el análisis de especies indicadoras de IndVal, se obtuvo que el
+método de agrupamiento Complete con dos grupos, presentó una sola
+especie indicadora, encontrada en el grupo dos, la cual posee una
+abundancia de 500 individuos. Con el método Ward el grupo cuatro pesentó
+como especies indicadoras a \emph{Elaeis oleifera}, \emph{Bactris major}
+y \emph{Attalea butyracea}; con la suma de grupos 1+2 se encuentra
+\emph{Socratea exorrizha}, y para los grupos 4+5 \emph{Astrocaryum
+standleyanum}.
+
+Utilizando el Coeficiente de correlación biserial puntual se observa que
+el grupo dos de la técnica de agrupamiento Complete mantiene a
+\emph{Socratea exorrizha} como especie indicadora. Mientras que para la
+técnica Ward hay una variación, no hay especies que se vean asociadas a
+dos grupos o más, solo a un grupo, siendo, \emph{Socratea exorrizha}
+para el sitio dos; y \emph{Elaeis oleifera}, \emph{Bactris major} y
+\emph{Attalea butyracea} para el grupo cuatro.
+
+\subsection{Análisis de diversidad}\label{anuxe1lisis-de-diversidad}
+
+Para la matriz combinada de especies de la familia los análisis de
+diversidad de Chao y Jacknife muestran que la riqueza de especies está
+completamente representada, ya que, el número de especies de la familia
+presentes en BCI es de 9, mientras que el número de especies muestreadas
+fue exactamente de 9 especies.
+
+Para los grupos Ward, sugieren que en los grupos 1 y 3 es posible
+encontrar una especie adicional si se aumentara el esfuerzo de muestreo;
+y los grupos 2, 4 y 5 muestran total representación de especies de la
+familia en base a lo estimado por los análisis. Cabe destacar que los
+estimadores de Shanon y Simpson tuvieron sus variaciones en muchos
+casos, pero de todas formas, lo observado y lo estimado estuvo dentro de
+los parámetros de confianza.
+
+En diversidad alpha la Equidad de Pielou y la Ratios de Hill se ven
+asociadas con la elevación media y abundancia global. Las coordenadas
+UTM.NS se relacionan con la riqueza de especies (N0) de manera negativa,
+y de manera positiva con las Ratios de Hill y la Equidad de Pielou. En
+cuanto a diversidad beta, se encontró que tanto los sitios, como las
+especies contribuyen a esta diversidad, siendo los sitios 13 y 23 los
+que contribuyen, y las especies \emph{Astrocaryum butyracea},
+\emph{Socratea exorrizha} y \emph{Bactris major}.
+
 \begin{longtable}[]{@{}lr@{}}
 \caption{\label{tab:abun_sp}Abundancia de individiuos por especie de la
 familia Arecaceae.}\tabularnewline
@@ -489,6 +561,27 @@ abundancia-riqueza.
 \includegraphics{matriz_correlacion_suelo_abun_riq_spearman.png}
 \caption{Matriz de correlacion de variables suelo y abundancia-riqueza.
 \label{fig:matriz_correlacion_suelo_abun_riq_spearman}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Cluster_Euclideandistance_Ward.png}
+\caption{Dendrograma de distancia Euclidea con remuestreo de Bootstrap.
+\label{fig:Cluster_Euclideandistance_Ward}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.50000\textwidth]{mapa_ward_k5.png}
+\caption{Mapa distribucion de sitios agrupados.
+\label{fig:mapa_ward_k5}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Grupos_Ward_k5_variables.png}
+\caption{Grafico de correlacion entre valiables y grupos de sitios.
+\label{fig:Grupos_Ward_k5_variables}}
 \end{figure}
 
 \section{Discusión}\label{discusiuxf3n}
