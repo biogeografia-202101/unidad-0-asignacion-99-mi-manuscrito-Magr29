@@ -14,7 +14,7 @@ title: |
 author:
 - name: Marcos Antonio González Reyes
   affiliation: Estudiante, Universidad Autónoma de Santo Domingo (UASD)
-abstract: "Resumen del manuscrito"
+abstract: "Se obtubieron datos de abundancia global por cuadrante de las especies de las familias presentes en BCI, con los cuadrantes 3, 5, 20, 43 y 48 mostrando la mayor abundancia de individuos; y los cuadrantes 22, 23, 31, 34 y 45 siendo los de menor abundancia. La distribución de pH en la parcela se presenta de izquierda a derecha, hacia la izquierda se encuentran los valores de pH más bajos y hacia la derecha los más altos. Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son las dos especies que no se asocian con otras especies. Existen asociaciones entre variables geomorfologicas y entre variables de riqueza-abundancia. La abundancia de la familia Arecaceae se encuentra asociada con la riqueza de especies de la familia, la orientación media y la riqueza global de especies de la parcela permanente. La riqueza de la familia se asocia a su vez con la variable geomorfológica de pico. Mediante técnicas de agrupamiento se lograron alcanzar 5 grupos de sitios mediante la técnica Ward. Utilizando el Coeficiente de correlación biserial puntual se observa que el grupo dos de la técnica de agrupamiento Complete mantiene a *Socratea exorrizha* como especie indicadora. El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo."
 keywords: "Arecaceae, BCI, Lago Gatún, Panamá"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 geometry: margin=1in
@@ -44,32 +44,32 @@ Esto se conoce como Long-Term Monitoring, puede ser definido como el levantamien
 
 Es un estudio a largo plazo cuando documenta los procesos importantes que componen el ecosistema o el tiempo de generación del organismo dominante, así, su duración se mide con la velocidad dinámica del sistema que se está estudiando [@franklin1989importance].
 
+En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, cuya mayoría se ve representada por árboles, también se encuentran arbustos y enredaderas. Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm].
+
 # Metodología
 
 ## Área de estudio
 
-El área de estudio es la parcela de 50ha en Isla Barro Colorado,localizada en el Lago Gatún en Panamá [@Hubbell2005Barro] (ver figura \ref{fig:mapa_cuadros}). Cuenta con una extensión de terreno de 54km^2, cada hectarea tiene 1km^2; la familia de plantas a examinar es Arecaceae Schultz Sch. 
+El área de estudio es la parcela de 50ha en Isla Barro Colorado, localizada en el Lago Gatún en Panamá [@Hubbell2005Barro] (ver figura \ref{fig:mapa_cuadros}). Cuenta con una extensión de terreno de 54km^2, cada hectarea tiene 1km^2; la familia de plantas a examinar es Arecaceae Schultz Sch. Se fundamentó en el uso del censo de BCI, tomando en cuenta una matriz de comunidad que representa las especies censadas. Cuenta con al menos 315 especies identificadas [@condit1998tropical]. Los datos levantados para calificar un individuo como apto para el censo se basaron en el diámetro a la altura del pecho (DAP) de 1cm, los censos por lo general se toman un período de 5 años para ser actualizados, en cada censo se colectan datos para ver que tanto han crecido los individuos, evaluar si hay nuevas especies y actualizar el número de individuos que cumplen con los requerimientos para ser anotados y enlistados en dicho censo.
 
 ![Área de estudio, parcela de 50ha, Isla Barro Colorado.
 \label{fig:mapa_cuadros}](mapa_cuadros.png){width=50%}
 
 ## Materiales y métodos
 
-Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes vegan [@VeganPack], tidyverse [@Tidyverse], sf[@sfpackage], mapview[@MapView], leaflet [@Leaflet], ez[@EZ], psych[@psych], adespatial [@adespatial], y scripts del repositorio "Scripts de análisis de BCI" [@jose_ramon_martinez_batlle_2020_4402362].
+Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes vegan [@VeganPack], tidyverse [@Tidyverse], sf[@sfpackage], mapview[@MapView], leaflet [@Leaflet], ez[@EZ], psych[@psych], adespatial [@adespatial], stats [@RSoft] y scripts del repositorio "Scripts de análisis de BCI" [@jose_ramon_martinez_batlle_2020_4402362].
 
-También se realizaron análisis exploratorios de datos, determinación de presencia-ausencia y abundancia/riqueza de especies de la familia, para observar en cuales sitios había mayor o menor número de especies y cuales sitios presentaron las abundancias más altas o más bajas; análisis de agrupamiento, para determinar cuales sitios compartían similitudes y características que los pudieran identificar como grupo. Mediciones de asociación, con el fin de explorar las variables (geomorfologicas, ambientales, suelo, etc.) asociadas a distintas especies y sitios; diversidad biológica para evaluar como están estructuradas las comuniades en los sitios muestrados [@Biodiv]; y ecología espacial que nos permite evaluar la autocorrelación inherente al área de estudio.
+Se utiliza un análisis de medición de asociación buscando calcular el grado de asociación entre especies, sitios y variables, para ello se utilizan índices de similaridad, disimilaridad y distancia, usando los de Jaccard, Sorensen, índice rho de Pearson, y Spearman, también la transformada de Chi para comparar correlación entre especies. Se usan los modos Q y R, Q para la disimilaridad entre obejetos (sitios) usando la abundancia de individuos en una matriz de distancia Euclídea y la transformada de Hellinger, que divide los valores de una fila por la suma de la fila y toma como resultado la raíz cuadrada de los valores obtenidos, la función 'coldiss' para generar mapas de calor con los sitios que forman grupos cercanos o lejanos.
 
-Se utilizó una matriz ambiental con los datos generales del área muestreada, una tabla censal de la familia estudiada; índices de Jaccard, transformada de Hellinger, Bootstrap, y distancia Euclidea para el estudio de biodiversidad, agrupamiento y determinar que sitios tienen las mayores probablidades de formar clusters.
+También se usaron modelos con enfoques asintóticos: Modelo homogéneo (estándar y MLE), Chao1 y Chao1-bc, iChao1, Basados en "cobertura" o "completitud de muestra". ACE para datos de abundancia, Estimadores Jackknife (de primer y segundo órdenes), que estiman la riqueza de especies; y modelos no asintóticos para rarefacción y extrapolación de datos.
 
-@RSoft, R es un lenguaje y un entorno para la computación y los gráficos estadísticos, proporciona una amplia variedad de técnicas estadísticas (modelado lineal y no lineal, pruebas estadísticas clásicas, análisis de series de tiempo, clasificación, agrupamiento, etc.) y técnicas gráficas, y es altamente extensible, uno de los puntos fuertes de R es la facilidad con la que se pueden producir gráficos con calidad de publicación bien diseñados, incluidos símbolos matemáticos y fórmulas cuando sea necesario .
+En modo R se calculó la correlación entre espescies, usando dotos cuantitativos de especies (riqueza), y entre variables para obtener el grado de asociación aplicando la transformación de Chi para comparar especies e índice rho de Spearman y método de Pearson para las variables ambientales. 
 
-El paquete vegan proporciona herramientas para la ecología descriptiva de comunidades. Tiene las funciones más básicas de análisis de diversidad, ordenación de comunidades y análisis de disimilitud. La mayoría de sus herramientas multivariadas también se pueden utilizar para otros tipos de datos [@VeganPack].
+Se realizaron análisis de agrupamiento utilizando técnicas de agrupamiento jerárquico, para agrupar según características o preferencias comúnes entre sitios, aquí se utilizan criterios de enlace y sus resultados se visualizan en dendrograma, para cuya elaboración se usó distancia Euclídea, que es la distancia entre un punto y otro según variables descriptivas y se usa la distancia mínima. Los criteros de enlace utilizados aquí fueron de enlace completo y ward de varianza mínima. Para la generación de dendrogramas se utilizó la función 'hclust' del paquete 'stats', presente por defecto en R. A su vez se utilizó 'anchura de silueta' para determinar cuantos grupos serian necesarios o mas representativos, pruebas multivariadas de Bootstrap en busqueda de los sitios que presentaran altas probabilidades de formar grupos, y la funcion 'heatmap' en la obtencion de mapas de calor para representar grupos de sitio y la distancia entre especies.
 
-Con el paquete 'leaflet' se pueden crear y personalizar mapas interactivos usando la librería de JavaScript y el paquete 'htmlwidgets' [@Leaflet].
+Para calcular el grado de diversidad alpha usamos los grupos generados mediante el análisis de agrupamiento, los 'grupos_complete_k2' y 'grupos_ward_k5'. A fin de calcular esto se utilizan métodos como la Entropia de Shannon *H<sub>1</sub>*, que calcula el grado de desorden en la muestra, índice de concentración de Simpson, que calcula la probabilidad de que dos individuos seleccionados aleatoriamente puedan ser de la misma especie,  Equidad de Pielou *J=H<sub>1</sub>/H<sub>0</sub>*. Números de Hill, riqueza de especies *N<sub>0</sub>=q*, número de especies abundantes *N<sub>1</sub>=exp(H)*, y el inverso de Simpson *N<sub>1</sub>=D*; esto para calcular diversidad alpha. Para diversidad beta calculamos la contribución de las especies y los sitios a la diversidad beta, usando la transformación de Hellinger.
 
-Paquete 'ez', las funciones de este paquete tienen como objetivo proporcionar una especificación simple, intuitiva y coherente de análisis y visualización de datos; las funciones de visualización también incluyen la visualización del diseño para la auditoría de datos previos al análisis y la visualización de la matriz de correlación; finalmente, este paquete incluye funciones para el análisis no paramétrico, incluidas las pruebas de permutación y remuestreo bootstrap [@EZ].
-
-Paquete 'psych', utilizado para el análisis multivariado y la construcción de escalas utilizando análisis factorial, análisis de componentes principales, análisis de conglomerados y análisis de confiabilidad, aunque otras proporcionan estadísticas descriptivas básicas [@psych].
+En ecología espacial usamos la transformada de hellinger y la matriz ambiental para crear un cuadro de vecindad y ver como se autocorrelacionan los sitios, se genera un correlograma para la variable que queremos estudiar mediante la función 'sp.correlogram' y para varias variables como la abundancia de especies y variables ambientales, también usando otros métodos como la prueba Mantel con matrices de distancia para autocorrelación espacial con y sin tendencia, y el I de Moran con una matriz de abundancia de especies transformada sin tendencia y se aplica a variables ambientales para obtener los datos de autocorrelación y distribución de especies y variables en los sitios de muestreo.
 
 # Resultados
 
@@ -84,52 +84,6 @@ Se obtubieron datos de abundancia global por cuadrante de las especies de las fa
 La abundancia de individuos para la familia Arecaceae se presenta en la figura \ref{fig:mapa_cuadros_abun_mi_familia}, donde observamos que los sitios/cuadrantes que mayor abundancia presentaron fueron los sitios 5, 6 y 27, con 113, 171 y 136 individuos respectivamente; y los sitios 35, 40 y 41 los de menor abundancia, presentando 9, 15 y 10 individuos respectivamente. Los cuadrantes que mayor riqueza mostraron tuvieron un numero de cinco y seis especies, los que menos mostraron tuvieron dos y tres especies, ningun cuadrante mostro una sola especie, asi mismo ninguno presento la totalidad de especies presentes en la parcela, cuyo valor es de nueve especies (ver figura \ref{fig:mapa_cuadros_riq_mi_familia}).
 
 La distribución de pH en la parcela se presenta de izquierda a derecha, hacia la izquierda se encuentran los valores de pH más bajos y hacia la derecha los más altos (ver figura \ref{fig:mapa_cuadros_pH}).
-
-## Medición de asociación
-
-### Asociacion de sitios
-
-Se utilizó la matriz de comunidad de la familia para generar una matriz de distancia Euclídea mediante la transformación de Hellinger, para obtener los datos de asociación entre los sitios muestreados. Estos datos en la matriz de disimilaridad oredenada, a la derecha, reflejan que existen al menos tres grandes grupos altamente asociados, mostrados en color fucsia, y en color cian los de baja asociación (ver figura \ref{fig:matriz_disimilaridad_hellinger}).
-
-### Asociacion de especies
-
-Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son las dos especies que no se asocian con otras especies; *Bactris coloniata* no presenta asociación con *Chamaedorea tepejilote*, *Elaeis oleifera* ni *Bactris major*; *Socratea exorrizha* no se asocia con *Chamaedorea tepejilote*, *Bactris barronis* ni *Elaeis oleifera*, pero sí se asocia con *Bactris coloniata*, *Oenocarpus mapora*, *Astrocaryum standleyanum*, *Attalea butyracea* y *Bactris major*; *Oenocarpus mapora* no tiene asociación con las especies *Chamaedorea tepejilote* ni *Bactris barronis*, mientras que sí presenta asociaciones con las demás especies; el mismo caso anterior se repite con las especies *Astrocaryum standleyanum* y *Attalea butyracea*; Elaeis oleifera no presenta asociaciones con *Chamaedorea tepejilote*, *Bactris barronis*, *Bactris coloniata* ni *Socratea exorrizha*, pero sí con las otras especies; *Bactris major* carece de asociación con las especies *Chamaedorea tepejilote*, *Bactris barronis* y *Bactris coloniata*. Esto se puede visualizar en la figura \ref{fig:matriz_asociacion_especies}, donde los colores cian significan nula asociación, y los colores fucsia la ascociación que presentan las especies.
-
-En la figura \ref{fig:matriz_distancia_especies} se pueden leer los resultados de la distancia entre las especies, donde los colores cian denotan larga distancia Euclídea, y los colores fucsia la corta distancia.
-
-### Asociacion de variables
-
-Existen asociaciones entre variables geomorfologicas y entre variables de riqueza-abundancia. La abundancia de la familia Arecaceae se encuentra asociada con la riqueza de especies de la familia, la orientación media y la riqueza global de especies de la parcela permanente. La riqueza de la familia se asocia a su vez con la variable geomorfológica de pico. Las variables geomorfológicas que mayor grado de asociación presentaron fueron las de pendiente media con con llanura, cuando un disminuía la otra aumentaba, creando de esta manera una correlación inversa; elevación media con vaguada, espolón/gajo e interfluvio mantiene una asociación inversa; hay asociación entre valle y vaguada; vaguada y se asocia con espolón/gajo de forma positiva, y de manera negativa con llanura; y hombrera se relaciona con llanura, (ver figura \ref{fig:matriz_correlacion_geomorf_abun_riq_spearman}).
-
-La abundancia de individuos estuvo asociada con nueve variables, de las cuales destacan las variables pH, Nitrogeno, Zinc y Boro, asociadas de de forma negativa. La variable pH estuvo asociada destacablemente con Nitrogeno, Zinc, Magnesio, Potasio, y Boro de forma positiva, y de manera negativa con el Aluminio. El grado mas alto de asociacion estuvo entre el Calcio y el Magnesio, figura \ref{fig:matriz_correlacion_suelo_abun_riq_spearman}.
-
-## Análisis de agrupamiento
-
-En la figura \ref{fig:Cluster_Euclideandistance_Ward} se muestran los sitios que tienen una alta probabilidad de formar grupos, representados en rectangulos de color azul, donde se forma un gran grupo con 27 sitios, tres grupos de tamaño medio con 7, 6 y 5 sitios, y dos grupos pequeños con 2 y 3 sitios cada uno. En el la figura \ref{fig:mapa_ward_k5} se muestra la distribución de estos grupos dentro de la parcela de 50ha de BCI. La distribución de los grupos es aleatoria, los grupos no se presentan de manera continua dentro de la parcela de 50ha de BCI, sino que, se visualizan de manera dispersa, esto puede deberse a distintas variables.
-
-En la figura \ref{fig:Grupos_Ward_k5_variables} se observa la asociación de variables a la distribución de estos grupos, destacando las asociaciones de las variables pH, Zinc, Magnesio, Manganeso, Fósforo, Aluminio, Nitrógeno, Curvatura, Pendiente, UTM y Hombrera. Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia.
-
-Mediante el análisis de especies indicadoras de IndVal, se obtuvo que el método de agrupamiento Complete con dos grupos, presentó una sola especie indicadora, encontrada en el grupo dos, la cual posee una abundancia de 500 individuos. Con el método Ward el grupo cuatro pesentó como especies indicadoras a *Elaeis oleifera*, *Bactris major* y *Attalea butyracea*; con la suma de grupos 1+2 se encuentra *Socratea exorrizha*, y para los grupos 4+5 *Astrocaryum standleyanum*. 
-
-Utilizando el Coeficiente de correlación biserial puntual se observa que el grupo dos de la técnica de agrupamiento Complete mantiene a *Socratea exorrizha* como especie indicadora. Mientras que para la técnica Ward hay una variación, no hay especies que se vean asociadas a dos grupos o más, solo a un grupo, siendo, *Socratea exorrizha* para el sitio dos; y *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* para el grupo cuatro.
-
-## Análisis de diversidad
-
-Para la matriz combinada de especies de la familia los análisis de diversidad de Chao y Jacknife muestran que la riqueza de especies está completamente representada, ya que, el número de especies de la familia presentes en BCI es de 9, mientras que el número de especies muestreadas fue exactamente de 9 especies. 
-
-Para los grupos Ward, sugieren que en los grupos 1 y 3 es posible encontrar una especie adicional si se aumentara el esfuerzo de muestreo; y los grupos 2, 4 y 5 muestran total representación de especies de la familia en base a lo estimado por los análisis. Cabe destacar que los estimadores de Shanon y Simpson tuvieron sus variaciones en muchos casos, pero de todas formas, lo observado y lo estimado estuvo dentro de los parámetros de confianza.
-
-En diversidad alpha la Equidad de Pielou y la Ratios de Hill se ven asociadas con la elevación media y abundancia global. Las coordenadas UTM.NS se relacionan con la riqueza de especies (N0) de manera negativa, y de manera positiva con las Ratios de Hill y la Equidad de Pielou. En cuanto a diversidad beta, se encontró que  tanto los sitios, como las especies, contribuyen a esta diversidad, siendo los sitios 13 y 23 los contribuyentes, y las especies *Astrocaryum butyracea*, *Socratea exorrizha* y *Bactris major*.
-
-## Análisis de Ecología espacial
-
-El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum* la tiene positiva para los órdenes 1 y 2, y negativa para los órdenes 5 y 6, *Elaeis oleifera* positiva para orden 1, *Oenocarpus mapora* de orden 1 negativa, *Socratea exorrizha* para orden 1 (positiva) y 5 (negativa). Hay autocorrelación para algunas variables geomorfológicas, pero solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7).
-
-Para la prueba Mantel existe autocorrelación para el orden 3, para un valor de 0.001.
-
-El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo. *Elaeis oleifera* a su vez parece estar asociada o en dependencia de las variables Ca, B, Mn, y en menor medida con K, Cu, Zn, N, pH, cuando estos valores son bajos; y con Al cuando son altos.
-
-Debido al azar con el que se presentan las especies de la familia en el área de estudio estimo que estos modelos no predicen con gran certeza la distribución u ocurrencia de las mismas.
 
 ```{r, echo=FALSE}
 knitr::kable(abun_sp,
@@ -155,8 +109,20 @@ abun_sp_q
 ![Mapa de pH, parcela de 50ha.
 \label{fig:mapa_cuadros_pH}](mapa_cuadros_ph.png){width=50%}
 
+## Medición de asociación
+
+### Asociacion de sitios
+
+Se utilizó la matriz de comunidad de la familia para generar una matriz de distancia Euclídea mediante la transformación de Hellinger, para obtener los datos de asociación entre los sitios muestreados. Estos datos en la matriz de disimilaridad oredenada, a la derecha, reflejan que existen al menos tres grandes grupos altamente asociados, mostrados en color fucsia, y en color cian los de baja asociación (ver figura \ref{fig:matriz_disimilaridad_hellinger}).
+
 ![Matriz de correlacion entre sitios.
 \label{fig:matriz_disimilaridad_hellinger}](matriz_disimilaridad_hellinger.png)
+
+### Asociacion de especies
+
+Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son las dos especies que no se asocian con otras especies; *Bactris coloniata* no presenta asociación con *Chamaedorea tepejilote*, *Elaeis oleifera* ni *Bactris major*; *Socratea exorrizha* no se asocia con *Chamaedorea tepejilote*, *Bactris barronis* ni *Elaeis oleifera*, pero sí se asocia con *Bactris coloniata*, *Oenocarpus mapora*, *Astrocaryum standleyanum*, *Attalea butyracea* y *Bactris major*; *Oenocarpus mapora* no tiene asociación con las especies *Chamaedorea tepejilote* ni *Bactris barronis*, mientras que sí presenta asociaciones con las demás especies; el mismo caso anterior se repite con las especies *Astrocaryum standleyanum* y *Attalea butyracea*; Elaeis oleifera no presenta asociaciones con *Chamaedorea tepejilote*, *Bactris barronis*, *Bactris coloniata* ni *Socratea exorrizha*, pero sí con las otras especies; *Bactris major* carece de asociación con las especies *Chamaedorea tepejilote*, *Bactris barronis* y *Bactris coloniata*. Esto se puede visualizar en la figura \ref{fig:matriz_asociacion_especies}, donde los colores cian significan nula asociación, y los colores fucsia la asociación que presentan las especies.
+
+En la figura \ref{fig:matriz_distancia_especies} se pueden leer los resultados de la distancia entre las especies, donde los colores cian denotan larga distancia Euclídea, y los colores fucsia la corta distancia.
 
 ![Matriz de asociacion entre especies.
 \label{fig:matriz_asociacion_especies}](matriz_asociacion_especies.png)
@@ -164,11 +130,27 @@ abun_sp_q
 ![Matriz de distancia entre especies.
 \label{fig:matriz_distancia_especies}](matriz_distancia_especies.png)
 
+### Asociacion de variables
+
+Existen asociaciones entre variables geomorfologicas y entre variables de riqueza-abundancia. La abundancia de la familia Arecaceae se encuentra asociada con la riqueza de especies de la familia, la orientación media y la riqueza global de especies de la parcela permanente. La riqueza de la familia se asocia a su vez con la variable geomorfológica de pico. Las variables geomorfológicas que mayor grado de asociación presentaron fueron las de pendiente media con con llanura, cuando un disminuía la otra aumentaba, creando de esta manera una correlación inversa; elevación media con vaguada, espolón/gajo e interfluvio mantiene una asociación inversa; hay asociación entre valle y vaguada; vaguada y se asocia con espolón/gajo de forma positiva, y de manera negativa con llanura; y hombrera se relaciona con llanura, (ver figura \ref{fig:matriz_correlacion_geomorf_abun_riq_spearman}).
+
+La abundancia de individuos estuvo asociada con nueve variables, de las cuales destacan las variables pH, Nitrogeno, Zinc y Boro, asociadas de de forma negativa. La variable pH estuvo asociada destacablemente con Nitrogeno, Zinc, Magnesio, Potasio, y Boro de forma positiva, y de manera negativa con el Aluminio. El grado mas alto de asociacion estuvo entre el Calcio y el Magnesio, figura \ref{fig:matriz_correlacion_suelo_abun_riq_spearman}.
+
 ![Matriz de correlacion de variables geomorfologicas y abundancia-riqueza.
 \label{fig:matriz_correlacion_geomorf_abun_riq_spearman}](matriz_correlacion_geomorf_abun_riq_spearman.png)
 
 ![Matriz de correlacion de variables suelo y abundancia-riqueza.
 \label{fig:matriz_correlacion_suelo_abun_riq_spearman}](matriz_correlacion_suelo_abun_riq_spearman.png)
+
+## Análisis de agrupamiento
+
+En la figura \ref{fig:Cluster_Euclideandistance_Ward} se muestran los sitios que tienen una alta probabilidad de formar grupos, representados en rectangulos de color azul, donde se forma un gran grupo con 27 sitios, tres grupos de tamaño medio con 7, 6 y 5 sitios, y dos grupos pequeños con 2 y 3 sitios cada uno. En el la figura \ref{fig:mapa_ward_k5} se muestra la distribución de estos grupos dentro de la parcela de 50ha de BCI. La distribución de los grupos es aleatoria, los grupos no se presentan de manera continua dentro de la parcela de 50ha de BCI, sino que, se visualizan de manera dispersa, esto puede deberse a distintas variables.
+
+En la figura \ref{fig:Grupos_Ward_k5_variables} se observa la asociación de variables a la distribución de estos grupos, destacando las asociaciones de las variables pH, Zinc, Magnesio, Manganeso, Fósforo, Aluminio, Nitrógeno, Curvatura, Pendiente, UTM y Hombrera. Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia.
+
+Mediante el análisis de especies indicadoras de IndVal, se obtuvo que el método de agrupamiento Complete con dos grupos, presentó una sola especie indicadora, encontrada en el grupo dos, la cual posee una abundancia de 500 individuos. Con el método Ward el grupo cuatro pesentó como especies indicadoras a *Elaeis oleifera*, *Bactris major* y *Attalea butyracea*; con la suma de grupos 1+2 se encuentra *Socratea exorrizha*, y para los grupos 4+5 *Astrocaryum standleyanum*. 
+
+Utilizando el Coeficiente de correlación biserial puntual se observa que el grupo dos de la técnica de agrupamiento Complete mantiene a *Socratea exorrizha* como especie indicadora. Mientras que para la técnica Ward hay una variación, no hay especies que se vean asociadas a dos grupos o más, solo a un grupo, siendo, *Socratea exorrizha* para el sitio dos; y *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* para el grupo cuatro.
 
 ![Dendrograma de distancia Euclidea con remuestreo de Bootstrap.
 \label{fig:Cluster_Euclideandistance_Ward}](Cluster_Euclideandistance_Ward.png)
@@ -179,7 +161,35 @@ abun_sp_q
 ![Grafico de correlacion entre valiables y grupos de sitios.
 \label{fig:Grupos_Ward_k5_variables}](Grupos_Ward_k5_variables.png)
 
+## Análisis de diversidad
+
+Para la matriz combinada de especies de la familia los análisis de diversidad de Chao y Jacknife muestran que la riqueza de especies está completamente representada, ya que, el número de especies de la familia presentes en BCI es de 9, mientras que el número de especies muestreadas fue exactamente de 9 especies. 
+
+Para los grupos Ward estos estimadores, sugieren que en los grupos 1 y 3 es posible encontrar una especie adicional si se aumentara el esfuerzo de muestreo; y los grupos 2, 4 y 5 muestran total representación de especies de la familia en base a lo estimado por los análisis. 
+
+En diversidad alpha la Equidad de Pielou y la Ratios de Hill se ven asociadas con la elevación media y abundancia global. Las coordenadas UTM.NS se relacionan con la riqueza de especies (N0) de manera negativa, y de manera positiva con las Ratios de Hill y la Equidad de Pielou. En cuanto a diversidad beta, se encontró que  tanto los sitios, como las especies, contribuyen a esta diversidad, siendo los sitios 13 y 23 los contribuyentes, y las especies *Astrocaryum butyracea*, *Socratea exorrizha* y *Bactris major*.
+
+## Análisis de Ecología espacial
+
+El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum* la tiene para los órdenes 1 y 2, y para los órdenes 5 y 6, *Elaeis oleifera* para orden 1, *Oenocarpus mapora* de orden 1 , *Socratea exorrizha* para orden 1 y 5. Hay autocorrelación para algunas variables geomorfológicas, pero solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7).
+
+Para la prueba Mantel existe autocorrelación para el orden 3, para un valor de 0.001.
+
+El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo. *Elaeis oleifera* a su vez parece estar asociada o en dependencia de las variables Ca, B, Mn, y en menor medida con K, Cu, Zn, N, pH, cuando estos valores son bajos; y con Al cuando son altos.
+
+Debido al azar con el que se presentan las especies de la familia en el área de estudio estimo que estos modelos no predicen con gran certeza la distribución u ocurrencia de las mismas.
+
 # Discusión
+
+Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa de individuos como reporta [@stevenson2008determinantes]. *Elaeis oleifera* es una indicadora significativa de la del micro hábitat pantanoso [@legendre2019spatial] y reporta un aumento de abundancia de 1 individuo, actualmente ese número ha incrementado a 20.
+
+*Bactris barronis* y *Chamaedorea tepejilote* fueron las especies que no se relacionaron con más especies, esto puede estar determinado por baja abundancia de individuos que presentaron, ya que son las 2 especies con la más baja abundancia, también podría estar relacionado con su distribución espacial y algunas variables ambientales como valores bajos de elevación media, y bajos valores de Al, Fe, Mn, y altos valores de pH fomentan la abundancia de *Chamaedorea tepejilote*. La asociación de variables también demostró estar correlacionada con la distribución de las especies dentro de la parcela. Cuatro pares de especies presentan asociación significativa, *Bactris major* y *Elaeis oleifera*, *Attalea butyracea* y *E. oleifera*, *Oenocarpus mapora* y *Socratea exorrizha*, y *Astrocaryum standleyanum* con *B. major*.
+
+Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia. Esto nos da una mejor perspectiva de por qué este grupo presenta esta distribución y especies muy particulares *Attalea butyracea*, *Bactris major* y *Elaeis oleifera*, especies que no se presentan en sitios tan contiguos como son los sitios 13, 18 y 23.
+
+Para los grupos Ward, sugieren que en los grupos 1 y 3 es posible encontrar una especie adicional si se aumentara el esfuerzo de muestreo; y los grupos 2, 4 y 5 muestran total representación de especies de la familia en base a lo estimado por los análisis. Cabe destacar que los estimadores de Shanon y Simpson tuvieron sus variaciones en muchos casos, pero de todas formas, lo observado y lo estimado estuvo dentro de los parámetros de confianza.
+
+El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum* la tiene positiva para los órdenes 1 y 2, y negativa para los órdenes 5 y 6, *Elaeis oleifera* positiva para orden 1, *Oenocarpus mapora* de orden 1 negativa, *Socratea exorrizha* para orden 1 (positiva) y 5 (negativa). Hay autocorrelación para algunas variables geomorfológicas, pero solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7). Estos resultados describirían por qué estas especies son las más abundantes, exceptuando por *E. oleifera* que es una de la de menor abundancia, pero que es una especie indicadora del ambiente pantanoso.
 
 # Agradecimientos
 
