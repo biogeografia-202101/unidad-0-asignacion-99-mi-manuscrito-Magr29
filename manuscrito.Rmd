@@ -8,9 +8,9 @@ output:
     template: svm-latex-ms.tex
     number_sections: true
 title: | 
-        | Inventario de las poblaciones de la familia Arecaceae presentes en la paracela permanente de 50ha, Barro Colorado. 
-        | Estudio poblacional, biodiversidad, agrupamiento y asociación.
-        | Ecología numérica con R
+        | Inventario de la familia Arecaceae en la paracela permanente de 50ha, Barro Colorado Island. 
+        | Estudio de comunidad, biodiversidad, agrupamiento y asociación.
+        | Ecología numérica con R.
 author:
 - name: Marcos Antonio González Reyes
   affiliation: Estudiante, Universidad Autónoma de Santo Domingo (UASD)
