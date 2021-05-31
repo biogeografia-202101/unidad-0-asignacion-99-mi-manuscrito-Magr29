@@ -40,9 +40,27 @@ Trabajos realizados en esta localidad han estudiado el cambio en la composición
 
 Barro Colorado es una isla localizada en el lago Gatún del Canal de Panamá. Es un área protegida, en la cual se esstudian los bosques tropicales y que junto con otras cinco penínsulas cercanas, forma el Monumento Natural Barro Colorado. Estructurado en 1923 y está administrado por el Instituto Smithsoniano desde 1946.
 
-En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, cuya mayoría se ve representada por árboles, también se encuentran arbustos y enredaderas. Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm].
+En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, cuya mayoría se ve representada por árboles, también se encuentran arbustos y enredaderas. Dentro del área la familia cuenta con cuatro tribus: Iriarte (1 especie), Cocoseae (6), Areceae (1), y Chamaedeeae (1). Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm].
 
-En la parcela de 50ha pocos trabajos resaltan en sí el estudio de la asociación de la familia Arecaceae, su diversidad, agrupamiento entre sitios y entre especies, y su ecología espacial. Por lo que en este trabajo buscamos esclarecer algunas preguntas basadas en estos aspectos: ¿Existe asociación de especies, sitios, y variables ambientales? ¿Cómo se organizan o agrupan los sitios en el área muestreada?, ¿Existe algún patrón consistente con alguna variable ambiental/atributo?, ¿Hay especies indicadoras o con preferencia por determinadas condiciones ambientales/atributos?, ¿Está suficientemente representada mi familia, según la diversidad presentada?, ¿Existe asociación de la diversidad alpha con variables ambientales/atributos?, ¿Con cuáles?, ¿Existe contribución local o por alguna especie a la diversidad beta?, ¿Alguna(s) especies de mi familia presenta(n) patrón aglomerado y de ser así, cuáles?, ¿Dicho patrón se asocia con alguna variable?, ¿Predicen bien la ocurrencia de dicha(s) especie(s) los modelos de distribución de especies (SDM)?
+En el presente trabajo se realizarán estudios, a fin de conocer la estructura ecológica de la familia, para ello se establecen algunas preguntas que ayuden a dirigir y enfocar esta investigación: 
+
+-¿Dentro de la familia estudiada se presentan especies, sitios, y variables asociadas?, 
+
+-¿Cómo se organizan o agrupan los sitios en el área muestreada?,
+
+-¿Existe alguna relación entre estos grupos y variables/atributos?,
+
+-¿Hay especies indicadoras o con preferencia por determinadas condiciones ambientales/atributos?,
+
+-¿Está suficientemente representada mi familia, según la diversidad presentada?, 
+
+-¿Existe asociación de la diversidad alpha con variables ambientales/atributos?, ¿Con cuáles?,
+
+-¿Existe contribución local o por alguna especie a la diversidad beta?, 
+
+-¿Alguna(s) especies de mi familia presenta(n) patrón aglomerado y de ser así, cuáles?, ¿Dicho patrón se asocia con alguna variable?, 
+
+-¿Predicen bien la ocurrencia de dicha(s) especie(s) los modelos de distribución de especies (SDM)?
 
 # Metodología
 
@@ -78,11 +96,21 @@ Para la generación de dendrogramas se utilizó la función 'hclust' del paquete
 
 Para calcular el grado de diversidad alpha usamos los grupos generados mediante el análisis de agrupamiento, 'grupos_ward_k5'. A fin de calcular esto se utilizan métodos como la Entropía de Shannon $H_1$, que calcula el grado de desorden en la muestra; índice de concentración de Simpson, que calcula la probabilidad de que dos individuos seleccionados aleatoriamente puedan ser de la misma especie,  Equidad de Pielou $J=H_1/H_0$. Números de Hill, riqueza de especies $N_0=q$, número de especies abundantes $N_1=e^H$, y el inverso de Simpson $N_1=1/\lambda$; y ratios de Hill $E_1=N_1/N_0$ (su versión para equidad Shannon), $E_2=N_2/N_0$ (versión de equidad de Simpson).
 
+También se usaron modelos con enfoques asintóticos:
+
+-Modelo homogéneo (estándar y MLE), este modelo asume que todas las especies tienen la misma incidencia o probabilidades de detección. 
+
+-Chao1 devolverá una estimación de la riqueza de especies basada en un vector o matriz de datos de abundancia; y Chao1-bc, una forma corregida por sesgos para el Chao1. 
+
+-iChao1, al igual que el estimador Chao1, el estimador iChao1 es un límite inferior aproximado para cualquier tamaño de muestra; el estimador iChao1 es un límite inferior mayor porque siempre es mayor o igual que el estimador Chao1 [@chiu2014improved]. 
+
+-Basados en "cobertura" o "completitud de muestra". ACE para datos de abundancia
+
+-Estimadores Jackknife de primer, utiliza la frecuencia de los únicos para estimar el número de especies no detectadas; y de segundo orden, utiliza las frecuencias de ejemplares únicos y duplicados para estimar el número de especies no detectadas; estiman la riqueza de especies. 
+
 Para diversidad beta calculamos la contribución de las especies y los sitios a la misma, valiéndonos de la función "*determinar_contrib_local_y_especie*", usando la transformación de Hellinger.
 
 ### Análisis de Ecología Espacial
-
-También se usaron modelos con enfoques asintóticos: Modelo homogéneo (estándar y MLE), Chao1 y Chao1-bc, iChao1, Basados en "cobertura" o "completitud de muestra". ACE para datos de abundancia, Estimadores Jackknife (de primer y segundo órdenes), que estiman la riqueza de especies; y modelos no asintóticos para rarefacción y extrapolación de datos.
 
 En ecología espacial usamos la transformada de hellinger y la matriz ambiental para crear un cuadro de vecindad y ver como se autocorrelacionan los sitios, se genera un correlograma para las variables que queremos estudiar mediante la función 'sp.correlogram' y para varias variables como la abundancia de especies y variables ambientales. También se usaron otros métodos como la prueba Mantel, para aplicarla a datos de comunidad, es necesario quitar la tendencia espacial. Para ello, primero hay que ajustar la matriz de comunidad transformada por Hellinger a la matriz de posiciones XY. El modelo resultante explicará las abundancias de especies transformadas  según la posición. Los residuos de dicho modelo, contendrán la proporción de las abundancias transformadas no explicada por la posición. Si dicha proporción presenta autocorrelación espacial (cuadros de 1 Ha cercanos entre sí que presentan correlación positiva o negativa), entonces es probable que se esté frente a un caso de dependencia espacial inducida por una variable interveniente con matrices de distancia para autocorrelación espacial con y sin tendencia. 
 
@@ -176,15 +204,21 @@ Hubo autocorrelación para el orden 3 en la prueba de Mantel, con significancia 
 
 # Discusión
 
-Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa de individuos como reporta [@stevenson2008determinantes]. *Elaeis oleifera* es una indicadora significativa de la del micro hábitat pantanoso [@legendre2019spatial] y reporta un aumento de abundancia de 1 individuo, actualmente ese número ha incrementado a 20.
+*Bactris barronis* y *Chamaedorea tepejilote* fueron las especies que no se relacionaron con más especies. Cuatro pares de especies presentan asociación significativa, *Bactris major* y *Elaeis oleifera*, *Attalea butyracea* y *E. oleifera*, *Oenocarpus mapora* y *Socratea exorrizha*, y *Astrocaryum standleyanum* con *B. major*. Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia. 
 
-*Bactris barronis* y *Chamaedorea tepejilote* fueron las especies que no se relacionaron con más especies, esto puede estar determinado por baja abundancia de individuos que presentaron, ya que son las 2 especies con la más baja abundancia, también podría estar relacionado con su distribución espacial y algunas variables ambientales como valores bajos de elevación media, y bajos valores de Al, Fe, Mn, y altos valores de pH fomentan la abundancia de *Chamaedorea tepejilote*. La asociación de variables también demostró estar correlacionada con la distribución de las especies dentro de la parcela. Cuatro pares de especies presentan asociación significativa, *Bactris major* y *Elaeis oleifera*, *Attalea butyracea* y *E. oleifera*, *Oenocarpus mapora* y *Socratea exorrizha*, y *Astrocaryum standleyanum* con *B. major*.
+También se determinó que la riqueza de la familia está completamente representada, con un 100% de completitud de muestra y covertura del conjunto, y un 95% de estimación de riqueza. La diversidad alpha demostró estar asociada estadísticamente con algunas variables (elevación media y abundancia global). En la diversidad beta se encontró la contribución de los sitios (13 y 23); y las especies *A. butyracea*, *S. exorrizha* y *B. major*. 
 
-Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia. Esto nos da una mejor perspectiva de por qué este grupo presenta esta distribución y especies muy particulares *Attalea butyracea*, *Bactris major* y *Elaeis oleifera*, especies que no se presentan en sitios tan contiguos como son los sitios 13, 18 y 23.
+El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum*, *Elaeis oleifera*, *Oenocarpus mapora*, *Socratea exorrizha*, mostraron la presencia de autocorrelación espacial. Hay autocorrelación para algunas variables geomorfológicas: llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7). 
 
-Para los grupos Ward, sugieren que en los grupos 1 y 3 es posible encontrar una especie adicional si se aumentara el esfuerzo de muestreo; y los grupos 2, 4 y 5 muestran total representación de especies de la familia en base a lo estimado por los análisis. Cabe destacar que los estimadores de Shanon y Simpson tuvieron sus variaciones en muchos casos, pero de todas formas, lo observado y lo estimado estuvo dentro de los parámetros de confianza.
+La falta de asociaciones de *B. major* y *C. tepejilote* puede estar determinada por baja abundancia de individuos que presentaron, ya que son las 2 especies con la más baja abundancia, también podría estar relacionado con su distribución espacial y algunas variables ambientales como valores bajos de elevación media; y bajos valores de Al, Fe, Mn, y altos valores de pH fomentan la abundancia de *Chamaedorea tepejilote*.
 
-El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum* la tiene positiva para los órdenes 1 y 2, y negativa para los órdenes 5 y 6, *Elaeis oleifera* positiva para orden 1, *Oenocarpus mapora* de orden 1 negativa, *Socratea exorrizha* para orden 1 (positiva) y 5 (negativa). Hay autocorrelación para algunas variables geomorfológicas, pero solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7). Estos resultados describirían por qué estas especies son las más abundantes, exceptuando por *E. oleifera* que es una de las de menor abundancia, pero que es una especie indicadora del hábitat pantanoso.
+Los bajos valores de asociación que presenta el grupo 4 con otras variables de suelo y algunas varibles ambientales/geomorfológicas, muestran una mejor perspectiva de por qué este grupo presenta esta distribución y especies muy particulares *Attalea butyracea*, *Bactris major* y *Elaeis oleifera*, especies que no se presentan en sitios tan contiguos como son los sitios 13, 18 y 23. La asociación de variables también demostró estar correlacionada con la distribución de las especies dentro de la parcela.
+
+Los resultados de los análisis de autocorrelación espacial describirían por qué las especies *A. standleyanum*, *E. oleifera*, *O. mapora*, *S. exorrizha* son las más abundantes, exceptuando por *Elaeis oleifera*, que es una indicadora significativa del micro hábitat pantanoso [@legendre2019spatial] y reporta un aumento de abundancia de 1 individuo, elevando su abundancia a 17 individuos para esa fecha, actualmente ese número ha incrementado a 20 individuos.
+
+Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa de individuos como reporta [@stevenson2008determinantes]. 
+
+
 
 # Agradecimientos
 
