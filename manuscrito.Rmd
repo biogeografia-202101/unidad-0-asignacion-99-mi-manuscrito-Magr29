@@ -28,6 +28,13 @@ header-includes:
   \usepackage{pdflscape}
   \newcommand{\blandscape}{\begin{landscape}}
   \newcommand{\elandscape}{\end{landscape}}
+  \usepackage{float} \floatplacement{figure}{H} 
+  \newcommand{\beginsupplement}{
+    \setcounter{table}{0}
+    \renewcommand{\thetable}{S\arabic{table}}
+    \setcounter{figure}{0}
+    \renewcommand{\thefigure}{S\arabic{figure}}
+    }
 ---
 
 ```{r, include = FALSE}
@@ -38,9 +45,9 @@ source("Arecaceae_aed_1.R", local = knitr::knit_global())
 
 Trabajos realizados en esta localidad han estudiado el cambio en la composición del bosque como resultado de sequías [@valenciaestudios], 
 
-Barro Colorado es una isla localizada en el lago Gatún del Canal de Panamá. Es un área protegida, en la cual se esstudian los bosques tropicales y que junto con otras cinco penínsulas cercanas, forma el Monumento Natural Barro Colorado. Estructurado en 1923 y está administrado por el Instituto Smithsoniano desde 1946.
+Barro Colorado es una isla localizada en el lago Gatún del Canal de Panamá. Es un área protegida, en la cual se estudian los bosques tropicales y que junto con otras cinco penínsulas cercanas, forma el Monumento Natural Barro Colorado. Fue estructurado en 1923 y está administrado por el Instituto Smithsoniano desde 1946.
 
-En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, cuya mayoría se ve representada por árboles, también se encuentran arbustos y enredaderas. Dentro del área la familia cuenta con cuatro tribus: Iriarte (1 especie), Cocoseae (6), Areceae (1), y Chamaedeeae (1). Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm].
+En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, en su mayoría representada por árboles, también se encuentran arbustos y enredaderas. Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm]. Dentro del área, la familia cuenta con cuatro tribus: Iriarte (1 especie), Cocoseae (6), Areceae (1), y Chamaedeeae (1). 
 
 En el presente trabajo se realizarán estudios, a fin de conocer la estructura ecológica de la familia, para ello se establecen algunas preguntas que ayuden a dirigir y enfocar esta investigación: 
 
@@ -58,7 +65,7 @@ En el presente trabajo se realizarán estudios, a fin de conocer la estructura e
 
 -¿Existe contribución local o por alguna especie a la diversidad beta?, 
 
--¿Alguna(s) especies de mi familia presenta(n) patrón aglomerado y de ser así, cuáles?, ¿Dicho patrón se asocia con alguna variable?, 
+-¿Alguna(s) especies de mi familia presenta(n) patrón aglomerado, y de ser así, cuáles?, ¿Dicho patrón se asocia con alguna variable?, 
 
 -¿Predicen bien la ocurrencia de dicha(s) especie(s) los modelos de distribución de especies (SDM)?
 
@@ -124,9 +131,7 @@ Se muestran los resultados del estudio realizado a la familia Arecaceae en la pa
 
 ## Riqueza-abundancia y presecia-ausencia
 
-La familia Arecaceae estuvo repesentada por 2,637 individuos, dentro de los que había una riqueza de 9 especies y 7 géneros. La especie más abundante fue *Oenocarpus mapora* con 1,802 individuos, seguida de *Socratea exorrizha* (500); *Astrocaryum standleyanum*  y *Bactris major* fueron las de abundancia media con 152 y 112 individuos respectivamente; y *Attalea butyracea*, *Elais oleifera*, *Bactris coloniata*, *Bactris barronis*  y *Chamaedorea tepejilote* 32, 20, 10, 5 y 4 individuos respectivamente (ver tabla \ref{tab:abun_sp} y figura \ref{fig:abun_sp_q}). La mayor abundancia de la familia estuvo presente en los sitios 5, 6 y 27, con 113, 171 y 136 individuos respectivamente; y los sitios 35, 40 y 41 los de menor abundancia, presentando 9, 15 y 10 individuos respectivamente (ver figura \ref{fig:mapa_cuadros_abun_mi_familia}). Los cuadrantes que mayor riqueza mostraron tuvieron un número de 5 a 6 especies, los que menos mostraron, tuvieron de 2 a 3 especies, ningún cuadrante mostró estar representado por solo 1 especie, así mismo ninguno presentó la totalidad de especies (9) presentes en la parcela (ver figura \ref{fig:mapa_cuadros_riq_mi_familia}).
-
-La distribución de pH en la parcela se presenta de izquierda a derecha, hacia la izquierda se encuentran los valores de pH más bajos y hacia la derecha los más altos (ver figura \ref{fig:mapa_cuadros_pH}).
+La familia Arecaceae estuvo repesentada por 2,637 individuos, dentro de los que hubo una riqueza de 9 especies y 7 géneros. La especie más abundante fue *Oenocarpus mapora* con 1,802 individuos, seguida de *Socratea exorrizha* (500); *Astrocaryum standleyanum*  y *Bactris major* fueron las de abundancia media con 152 y 112 individuos respectivamente; y *Attalea butyracea*, *Elais oleifera*, *Bactris coloniata*, *Bactris barronis*  y *Chamaedorea tepejilote* 32, 20, 10, 5 y 4 individuos respectivamente (ver tabla \ref{tab:abun_sp} y figura \ref{fig:abun_sp_q}). La mayor abundancia de la familia estuvo presente en los sitios 5, 6 y 27, con 113, 171 y 136 individuos respectivamente; y los sitios 35, 40 y 41 los de menor abundancia, presentando 9, 15 y 10 individuos respectivamente (ver figura \ref{fig:mapa_cuadros_abun_mi_familia}). Los cuadrantes que mayor riqueza mostraron tuvieron un número de 5 a 6 especies, los que menos mostraron, tuvieron de 2 a 3 especies, ningún cuadrante mostró estar representado por solo 1 especie, así mismo ninguno presentó la totalidad de especies (9) presentes en la parcela (ver figura \ref{fig:mapa_cuadros_riq_mi_familia}).
 
 ```{r, echo=FALSE}
 knitr::kable(abun_sp,
@@ -136,22 +141,6 @@ knitr::kable(abun_sp,
 ```{r, echo=FALSE, fig.cap="\\label{fig:abun_sp_q}Abundancia de individuos por especie en cada cuadrante."}
 abun_sp_q
 ```
-
-![Mapa de abundancia global.
-\label{fig:mapa_cuadros_abun_global}](mapa_cuadros_abun_global.png){width=50%}
-
-![Mapa de riqueza global.
-\label{fig:mapa_cuadros_riq_global}](mapa_cuadros_riq_global.png){width=50%}
-
-![Mapa de abundancia de individuos por cuadrante de la familia Arecaceae.
-\label{fig:mapa_cuadros_abun_mi_familia}](mapa_cuadros_abun_mi_familia.png){width=50%}
-
-![Mapa de riqueza de especies de la familia Arecaceae.
-\label{fig:mapa_cuadros_riq_mi_familia}](mapa_cuadros_riq_mi_familia.png){width=50%}
-
-![Mapa de pH, parcela de 50ha.
-\label{fig:mapa_cuadros_pH}](mapa_cuadros_ph.png){width=50%}
-
 ## Medición de asociación
 
 Los sitios mostraron grados de correlación estadística mediante análisis de disimilaridad de distancia Euclídea, de igual manera se econtraron sitios altamente disímiles del conjunto (sitios 18, 21, 31 y 42)(ver figura \ref{fig:matriz_disimilaridad_hellinger}).
@@ -159,7 +148,7 @@ Los sitios mostraron grados de correlación estadística mediante análisis de d
 ![Matriz de correlacion entre sitios. En color fucsia los sitios que poseen alta asociación, y en color cian los de baja asociación.
 \label{fig:matriz_disimilaridad_hellinger}](matriz_disimilaridad_hellinger.png)
 
-Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son especies que no presentan asociaciones con otras; *Socratea exorrizha* se asocia con *Bactris coloniata*, *Oenocarpus mapora*, *Astrocaryum standleyanum*, *Attalea butyracea* y *Bactris major*; *Oenocarpus mapora* no tiene asociación con las especies *Chamaedorea tepejilote* ni *Bactris barronis*, mientras que sí presenta asociaciones con las demás especies; el mismo caso anterior se repite con las especies *Astrocaryum standleyanum* y *Attalea butyracea*; Elaeis oleifera no presenta asociaciones con *Chamaedorea tepejilote*, *Bactris barronis*, *Bactris coloniata* ni *Socratea exorrizha*, pero sí con las otras especies; *Bactris major* carece de asociación con las especies *Chamaedorea tepejilote*, *Bactris barronis* y *Bactris coloniata*, (ver figuras \ref{fig:matriz_asociacion_especies} y \ref{fig:matriz_distancia_especies}).
+Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son especies que no presentan asociaciones con otras; *Socratea exorrizha* se asocia con *Bactris coloniata*, *Oenocarpus mapora*, *Astrocaryum standleyanum*, *Attalea butyracea* y *Bactris major*; *Oenocarpus mapora* presenta asociaciones con las demás especies; el mismo caso anterior se repite con las especies *Astrocaryum standleyanum* y *Attalea butyracea*; *Elaeis oleifera* presenta asociaciones con *A. standleyanum*, *Bactris major*, *A. butyracea* y *Oenocarpus mapora*; *Bactris major* carece de asociación con las especies *Chamaedorea tepejilote*, *Bactris barronis* y *Bactris coloniata*, (ver figuras \ref{fig:matriz_asociacion_especies} y \ref{fig:matriz_distancia_especies}).
 
 ![Matriz de asociacion entre especies. Los colores cian significan nula asociación, y los colores fucsia la asociación que presentan las especies.
 \label{fig:matriz_asociacion_especies}](matriz_asociacion_especies.png)
@@ -177,7 +166,7 @@ Se observaron asociaciones entre variables geomorfologicas y variables de riquez
 
 ## Análisis de agrupamiento
 
-Se detectaron sitios con altas pobabilidades de formar grupos, cuyo agrupamiento por método "*ward*" resultó en cinco grupos, un gran grupo con 24 sitios; uno mediano con 15; y tres pequeños con 2, 3 y 6 sitios cada uno, (ver figura \ref{fig:Dendrograma_grupos_ward_5}). A pesar de la autocorrelación que presentan los sitios entre sí, la composición de especies de la familia afecta la distribución de los grupos, haciendo que los sitios formen agrupamientos discontinuos, (ver figura \ref{fig:mapa_ward_k5}). Los sitios siguen un patrón de asociación discontinuo o disperso, que tiene grados de correlación con variables ambientales como Al, B, Mn, Cu, Zn, N, pH, K; y variables geomorfológicas de elevación media, hombrera y pendiente media, (ver figura \ref{fig:Grupos_Ward_k5_variables}). Los sitios pertenecientes al grupo cuatro tienen marcada asociación con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia.
+Se detectaron sitios con altas pobabilidades de formar grupos, cuyo agrupamiento por método "*ward*" resultó en cinco grupos, un gran grupo con 24 sitios; uno mediano con 15; y tres pequeños con 2, 3 y 6 sitios cada uno, (ver figura \ref{fig:Dendrograma_grupos_ward_5}). A pesar de la autocorrelación que presentan los sitios entre sí, la composición de especies de la familia afecta la distribución de los grupos, haciendo que los sitios formen agrupamientos discontinuos, (ver figura \ref{fig:mapa_ward_k5}). Este patrón de distribución tiene grados de correlación con variables ambientales como Al, B, Mn, Cu, Zn, N, pH, K; y variables geomorfológicas de elevación media, hombrera y pendiente media, (ver figura \ref{fig:Grupos_Ward_k5_variables}). Los sitios pertenecientes al grupo cuatro tienen marcada asociación con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia.
 
 Se observaron especies indicadoras en el agrupamiento "*ward*" mediante método del valor indicador (IndVal), y con preferencia de hábitats con el Coeficiente de Correlación Biserial Puntual (CCBP), las cuales fueron *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* en el grupo 4; con la suma de grupos 1+2 se encuentra *Socratea exorrizha*, y para los grupos 4+5 *Astrocaryum standleyanum*. A su vez, se detectaron especies con preferancias por hábitats: *Socratea exorrizha* con preferencia por los habitats "*OldLow*" (bosque viejo con relieve bajo) y "*OldSlope*" (Bosque viejo con pendiente) en el grupo 2; y *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* en el grupo 4, con preferancia por los habitats "*OldLow*" y "*swamp*" (pantano). 
 
@@ -198,33 +187,48 @@ En diversidad alpha la Equidad de Pielou y la Ratios de Hill mostraron asociaci�
 
 ## Análisis de Ecología espacial
 
-Se detectaron autocorrelaciones tanto para las especies, como para las variables geomorfológicas y de suelo. Las especies que mostraron autocorrelación fueron *Astrocaryum standleyanum* con valor positivo para los órdenes 1, 2, y negativo para órdenes 5 y 6; *Elaeis oleifera* y *Oenocarpus mapora* en el orden 1, positiva y negativa respectivamente; *Socratea exorrizha* positiva para orden 1 y negativa para orden 5. Las variables geomorfológicas que tuvieron autocorrelación la presentaron solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son: Al con valor positivo para orden 1 y negativo para orden 7; B, Ca, Zn y K en los órdenes 1-3 (positiva) y 5-8 (negativa); Mg órdenes 1-3 (positiva) y 6-8 (negativa); Fe positiva en los órdenes (1, 2) y negativa en (7, 8); Cu en órdenes 1 y 2; Mn positiva para orden 1 y negativa para el 4; P positiva en órdenes (1, 4) y negativa en los (2, 6) N 1-2 (positiva) y 4-6 (negativa); N.min 1-3 (positiva) y 7-9 (negativa); pH órdenes 1-3 (positiva) y 4-7 (negativa); pendiente y orientación media para orden 1; y elevación media, positiva para órdenes (1, 2) y negativa para (3, 4).
+Se detectaron autocorrelaciones mediante el I de Moran, tanto para las especies, como para las variables geomorfológicas y de suelo. Las especies que mostraron autocorrelación fueron *Astrocaryum standleyanum* con valor positivo para los órdenes 1, 2, y negativo para órdenes 5 y 6; *Elaeis oleifera* y *Oenocarpus mapora* en el orden 1, positiva y negativa respectivamente; *Socratea exorrizha* positiva para orden 1 y negativa para orden 5. Las variables geomorfológicas que tuvieron autocorrelación la presentaron solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son: Al con valor positivo para orden 1 y negativo para orden 7; B, Ca, Zn y K en los órdenes 1-3 (positiva) y 5-8 (negativa); Mg órdenes 1-3 (positiva) y 6-8 (negativa); Fe positiva en los órdenes (1, 2) y negativa en (7, 8); Cu en órdenes 1 y 2; Mn positiva para orden 1 y negativa para el 4; P positiva en órdenes (1, 4) y negativa en los (2, 6) N 1-2 (positiva) y 4-6 (negativa); N.min 1-3 (positiva) y 7-9 (negativa); pH órdenes 1-3 (positiva) y 4-7 (negativa); pendiente y orientación media para orden 1; y elevación media, positiva para órdenes (1, 2) y negativa para (3, 4). La distribución de pH en la parcela se presenta de izquierda a derecha, hacia la izquierda se encuentran los valores de pH más bajos y hacia la derecha los más altos (ver figura \ref{fig:mapa_cuadros_pH}).
 
-Hubo autocorrelación para el orden 3 en la prueba de Mantel, con significancia para un valor de 0.001. El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo; esta especie se describe como calciofila [@grandtner2013dictionary]. *Elaeis oleifera* parece mostrar preferencia por variables como llanura; hábitats "*OldLow*" y "*Swamp*"; en presencia de Al esta especie puede aumentar sus valores de abundancia; y de bajos valores de N, K, Mg y elvación media. "*A. butyracea*" pareciera tener preferencia por algunas de las variables anteriores. Los sitios del grupo 4 (13, 18 y 23) son de los que presentan mayor heterogeneidad ambiental, valores de elevación media similares, cercanos valores Cu, Mn y Ca. Debido al azar con el que se presentan las especies de la familia en el área de estudio estimo que estos modelos no predicen con gran certeza la distribución u ocurrencia de las mismas.
+Hubo autocorrelación para el orden 3 en la prueba de Mantel, con significancia para un valor de 0.001. El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo; esta especie se describe como calciofila [@grandtner2013dictionary]. *Elaeis oleifera* parece mostrar preferencia por variables como llanura; hábitats "*OldLow*" y "*Swamp*"; en presencia de Al esta especie puede aumentar sus valores de abundancia; y de bajos valores de N, K, Mg y elvación media. "*A. butyracea*" pareciera tener preferencia por algunas de las variables anteriores. Los sitios del grupo 4 (13, 18 y 23) son de los que presentan mayor heterogeneidad ambiental, valores de elevación media similares, cercanos valores Cu, Mn y Ca. Debido al azar con el que se presentan las especies de la familia en el área de estudio, estimo que estos modelos no predicen con gran certeza la distribución u ocurrencia de las mismas.
 
 # Discusión
 
-*Bactris barronis* y *Chamaedorea tepejilote* fueron las especies que no se relacionaron con más especies. Cuatro pares de especies presentan asociación significativa, *Bactris major* y *Elaeis oleifera*, *Attalea butyracea* y *E. oleifera*, *Oenocarpus mapora* y *Socratea exorrizha*, y *Astrocaryum standleyanum* con *B. major*. Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia. 
+*Bactris barronis* y *Chamaedorea tepejilote* fueron las especies que no se relacionaron con otras especies. Cuatro pares de especies presentan asociación significativa, *Bactris major* y *Elaeis oleifera*, *Attalea butyracea* y *E. oleifera*, *Oenocarpus mapora* y *Socratea exorrizha*, y *Astrocaryum standleyanum* con *B. major*. Los sitios pertenecientes al grupo cuatro tienen marcada asociaión con variables de suelo como (Potasio, Hierro, Aluminio y pH) mientras que con otras variables de suelo tiene valores de asociación bajos; con variables ambientales/geomorfológicas como (Riqueza global, Vertiente, Heterogeneidad ambiental y Pendiente media) presenta altos grados de dependencia. 
 
 También se determinó que la riqueza de la familia está completamente representada, con un 100% de completitud de muestra y covertura del conjunto, y un 95% de estimación de riqueza. La diversidad alpha demostró estar asociada estadísticamente con algunas variables (elevación media y abundancia global). En la diversidad beta se encontró la contribución de los sitios (13 y 23); y las especies *A. butyracea*, *S. exorrizha* y *B. major*. 
 
-El I de Moran señala que el pH muestra una autocorrelación espacial de los ordenes 1 al 7. En tanto que para las especies, *Astrocaryum standleyanum*, *Elaeis oleifera*, *Oenocarpus mapora*, *Socratea exorrizha*, mostraron la presencia de autocorrelación espacial. Hay autocorrelación para algunas variables geomorfológicas: llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7). 
+Las especies, *Astrocaryum standleyanum*, *Elaeis oleifera*, *Oenocarpus mapora*, *Socratea exorrizha*, mostraron la presencia de autocorrelación espacial. Hubo autocorrelación para algunas variables geomorfológicas: llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son B, Ca, Zn y K en los órdenes (1-3 y 5-8); Mg órdenes (1-3 y 6-8); N (1-2 y 4-6); N.min (1-3 y 7-9); y pH órdenes (1-7). 
 
-La falta de asociaciones de *B. major* y *C. tepejilote* puede estar determinada por baja abundancia de individuos que presentaron, ya que son las 2 especies con la más baja abundancia, también podría estar relacionado con su distribución espacial y algunas variables ambientales como valores bajos de elevación media; y bajos valores de Al, Fe, Mn, y altos valores de pH fomentan la abundancia de *Chamaedorea tepejilote*.
+La falta de asociaciones de *B. major* y *C. tepejilote* puede estar determinada por baja abundancia de individuos que presentaron, ya que son las 2 especies con la más baja abundancia, también podría estar relacionado con su distribución espacial y algunas variables ambientales como valores bajos de elevación media; y bajos valores de Al, Fe, Mn, y bajos valores de pH fomentan la abundancia de *Chamaedorea tepejilote*.
 
 Los bajos valores de asociación que presenta el grupo 4 con otras variables de suelo y algunas varibles ambientales/geomorfológicas, muestran una mejor perspectiva de por qué este grupo presenta esta distribución y especies muy particulares *Attalea butyracea*, *Bactris major* y *Elaeis oleifera*, especies que no se presentan en sitios tan contiguos como son los sitios 13, 18 y 23. La asociación de variables también demostró estar correlacionada con la distribución de las especies dentro de la parcela.
 
 Los resultados de los análisis de autocorrelación espacial describirían por qué las especies *A. standleyanum*, *E. oleifera*, *O. mapora*, *S. exorrizha* son las más abundantes, exceptuando por *Elaeis oleifera*, que es una indicadora significativa del micro hábitat pantanoso [@legendre2019spatial] y reporta un aumento de abundancia de 1 individuo, elevando su abundancia a 17 individuos para esa fecha, actualmente ese número ha incrementado a 20 individuos.
 
-Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa de individuos como reporta [@stevenson2008determinantes]. 
+Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa como reporta [@stevenson2008determinantes]. 
 
-
+Los resultados obtenidos en esta investigación servirán a futuro para implementar este tipo de metodología en casi cualquier área de estudio que se proponga investigar, ya que los análisis son extrapolables y adaptables a casi todos los bosques tropicales, y nos ayudarían a entender la ecología de sitios que actualmente desconocemos la estructura de su comunidad, es importante que este tipo de trabajos se sigan ralizando con frecuencia en todos los bosques del mundo a fin de observar la dinámica poblacional de distintos ambientes, marcar un punto de partida en estas áreas desconocidas y ver como las suceciones ecológicas van cambiando con el tiempo, ver como se desarrollan las especies e inventariar especies que tal vez no habíamos visto en algunos sitios debido a distintas razones o variables que tal vez no sabíamos que podían influir en la biodiversidad en el área muestreada.
 
 # Agradecimientos
 
 # Información de soporte
 
-\ldots
+\beginsupplement
+
+![Mapa de abundancia global.
+\label{fig:mapa_cuadros_abun_global}](mapa_cuadros_abun_global.png){width=50%}
+
+![Mapa de riqueza global.
+\label{fig:mapa_cuadros_riq_global}](mapa_cuadros_riq_global.png){width=50%}
+
+![Mapa de abundancia de individuos por cuadrante de la familia Arecaceae.
+\label{fig:mapa_cuadros_abun_mi_familia}](mapa_cuadros_abun_mi_familia.png){width=50%}
+
+![Mapa de riqueza de especies de la familia Arecaceae.
+\label{fig:mapa_cuadros_riq_mi_familia}](mapa_cuadros_riq_mi_familia.png){width=50%}
+
+![Mapa de pH, parcela de 50ha.
+\label{fig:mapa_cuadros_pH}](mapa_cuadros_ph.png){width=50%}
 
 # *Script* reproducible
 
