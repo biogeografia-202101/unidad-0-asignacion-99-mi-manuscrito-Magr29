@@ -43,11 +43,13 @@ source("Arecaceae_aed_1.R", local = knitr::knit_global())
 
 # Introducción
 
-Trabajos realizados en esta localidad han estudiado el cambio en la composición del bosque como resultado de sequías [@valenciaestudios], 
+Trabajos realizados en esta localidad han estudiado el cambio en la composición del bosque como resultado de sequías [@valenciaestudios], . La riqueza de especies de plantas está fuertemente asociada a temperatura, radiación solar y potencial de evapotranspiración, y muestra una baja relación con la precipitación [@currie1991energy]. Aunque el número absoluto de especies puede cambiar con el tiempo, debido a eventos de especiación, extinción o dispersión, la persistencia de patrones predecibles nos dice que tales eventos y sus consecuencias están de alguna manera limitados geográficamente, sugieren que si entendiéramos los factores que gobiernan los patrones geográficos, sería posible predecir la riqueza actual donde faltan datos empíricos, así como modelar cómo los patrones podrían cambiar con el tiempo dados los cambios (pasado / futuro) en los factores de control [@o1998water].
 
 Barro Colorado es una isla localizada en el lago Gatún del Canal de Panamá. Es un área protegida, en la cual se estudian los bosques tropicales y que junto con otras cinco penínsulas cercanas, forma el Monumento Natural Barro Colorado. Fue estructurado en 1923 y está administrado por el Instituto Smithsoniano desde 1946.
 
-En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, en su mayoría representada por árboles, también se encuentran arbustos y enredaderas. Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm]. Dentro del área, la familia cuenta con cuatro tribus: Iriarte (1 especie), Cocoseae (6), Areceae (1), y Chamaedeeae (1). 
+En este estudio se estará trabajando con la familia de plantas Arecaceae, comúnmente conocidas como palmeras. Las palmas o palmeras son plantas monocotiledóneas y presentan un crecimiento apical, que al perder esta parte, detienen su crecimiento, secan y mueren. Las palmas cuentan con aproxiamadamente 3,500 especies, en su mayoría representada por árboles, también se encuentran arbustos y enredaderas. Las formas arbóreas no presentan ramificación en el tronco y tienen una corona terminal en hojas, generalmente llamadas frondas, que emergen de una en una de la yema apical. La lignina de sus paredes celulares le confiere al tallo gran rigidez, y como monocotiledóneas no poseen crecimiento secundario. Algunas de ellas tienen valor económico y pueden se fuente de alimento, refugio, ropa y combustible [@glimn2006palm]. Dentro del área, la familia cuenta con cuatro tribus: Iriarte (1 especie), Cocoseae (6), Areceae (1), y Chamaedeeae (1).
+
+Los bosques tropicales de tierra firme de tierras bajas poseen mayor riqueza, mientras que los bosques pantanosos o crecen en suelos arenosos o en áreas con clima estacional tienen muchas menos especies; las comunidades de palmeras en la Amazonía centro-occidental y en América Central son significativamente más ricas que la región promedio y las del Caribe son significativamente más pobres en especies, las palmeras son a menudo especies clave de los ecosistemas y forman conjuntos complejos de diferentes formas de crecimiento coexistentes que van desde pequeños arbustos hasta árboles altos y lianas [@balslev2011species].
 
 En el presente trabajo se realizarán estudios, a fin de conocer la estructura ecológica de la familia, para ello se establecen algunas preguntas que ayuden a dirigir y enfocar esta investigación: 
 
@@ -127,8 +129,6 @@ Para este estudio se utilizó el software estadístico R [@RSoft], los paquetes 
 
 # Resultados
 
-Se muestran los resultados del estudio realizado a la familia Arecaceae en la parcela de 50ha de Barro Colorado. 
-
 ## Riqueza-abundancia y presecia-ausencia
 
 La familia Arecaceae estuvo repesentada por 2,637 individuos, dentro de los que hubo una riqueza de 9 especies y 7 géneros. La especie más abundante fue *Oenocarpus mapora* con 1,802 individuos, seguida de *Socratea exorrizha* (500); *Astrocaryum standleyanum*  y *Bactris major* fueron las de abundancia media con 152 y 112 individuos respectivamente; y *Attalea butyracea*, *Elais oleifera*, *Bactris coloniata*, *Bactris barronis*  y *Chamaedorea tepejilote* 32, 20, 10, 5 y 4 individuos respectivamente (ver tabla \ref{tab:abun_sp} y figura \ref{fig:abun_sp_q}). La mayor abundancia de la familia estuvo presente en los sitios 5, 6 y 27, con 113, 171 y 136 individuos respectivamente; y los sitios 35, 40 y 41 los de menor abundancia, presentando 9, 15 y 10 individuos respectivamente (ver figura \ref{fig:mapa_cuadros_abun_mi_familia}). Los cuadrantes que mayor riqueza mostraron tuvieron un número de 5 a 6 especies, los que menos mostraron, tuvieron de 2 a 3 especies, ningún cuadrante mostró estar representado por solo 1 especie, así mismo ninguno presentó la totalidad de especies (9) presentes en la parcela (ver figura \ref{fig:mapa_cuadros_riq_mi_familia}).
@@ -141,28 +141,14 @@ knitr::kable(abun_sp,
 ```{r, echo=FALSE, fig.cap="\\label{fig:abun_sp_q}Abundancia de individuos por especie en cada cuadrante."}
 abun_sp_q
 ```
-## Medición de asociación
+
+## Análisis de asociación
 
 Los sitios mostraron grados de correlación estadística mediante análisis de disimilaridad de distancia Euclídea, de igual manera se econtraron sitios altamente disímiles del conjunto (sitios 18, 21, 31 y 42)(ver figura \ref{fig:matriz_disimilaridad_hellinger}).
 
-![Matriz de correlacion entre sitios. En color fucsia los sitios que poseen alta asociación, y en color cian los de baja asociación.
-\label{fig:matriz_disimilaridad_hellinger}](matriz_disimilaridad_hellinger.png)
-
 Para la asociación de especies, los datos arrojaron que *Chamaedorea tepejilote* y *Bactris barronis* son especies que no presentan asociaciones con otras; *Socratea exorrizha* se asocia con *Bactris coloniata*, *Oenocarpus mapora*, *Astrocaryum standleyanum*, *Attalea butyracea* y *Bactris major*; *Oenocarpus mapora* presenta asociaciones con las demás especies; el mismo caso anterior se repite con las especies *Astrocaryum standleyanum* y *Attalea butyracea*; *Elaeis oleifera* presenta asociaciones con *A. standleyanum*, *Bactris major*, *A. butyracea* y *Oenocarpus mapora*; *Bactris major* carece de asociación con las especies *Chamaedorea tepejilote*, *Bactris barronis* y *Bactris coloniata*, (ver figuras \ref{fig:matriz_asociacion_especies} y \ref{fig:matriz_distancia_especies}).
 
-![Matriz de asociacion entre especies. Los colores cian significan nula asociación, y los colores fucsia la asociación que presentan las especies.
-\label{fig:matriz_asociacion_especies}](matriz_asociacion_especies.png)
-
-![Matriz de distancia entre especies. Los colores cian denotan larga distancia Euclídea, y los colores fucsia corta distancia.
-\label{fig:matriz_distancia_especies}](matriz_distancia_especies.png)
-
 Se observaron asociaciones entre variables geomorfologicas y variables de riqueza-abundancia, la abundancia de la familia Arecaceae se encontró asociada a la variable de pendiente media; y la riqueza de especies estuvo relacionada con geomorfología de pico, (ver figura \ref{fig:matriz_correlacion_geomorf_abun_riq_spearman}). En cuanto a variables de suelo y riqueza-abundancia, la abundancia estuvo asociada significativamente con las variables B, Ca, Cu, K, Mn, Zn, N, N.min, y pH de manera negativa, mientras que la riqueza no mostró asociación significativa con ninguna variable de suelo, (ver figura \ref{fig:matriz_correlacion_suelo_abun_riq_spearman}).
-
-![Matriz de correlacion de variables geomorfologicas y abundancia-riqueza.
-\label{fig:matriz_correlacion_geomorf_abun_riq_spearman}](matriz_correlacion_geomorf_abun_riq_spearman.png)
-
-![Matriz de correlacion de variables suelo y abundancia-riqueza.
-\label{fig:matriz_correlacion_suelo_abun_riq_spearman}](matriz_correlacion_suelo_abun_riq_spearman.png)
 
 ## Análisis de agrupamiento
 
@@ -170,14 +156,7 @@ Se detectaron sitios con altas pobabilidades de formar grupos, cuyo agrupamiento
 
 Se observaron especies indicadoras en el agrupamiento "*ward*" mediante método del valor indicador (IndVal), y con preferencia de hábitats con el Coeficiente de Correlación Biserial Puntual (CCBP), las cuales fueron *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* en el grupo 4; con la suma de grupos 1+2 se encuentra *Socratea exorrizha*, y para los grupos 4+5 *Astrocaryum standleyanum*. A su vez, se detectaron especies con preferancias por hábitats: *Socratea exorrizha* con preferencia por los habitats "*OldLow*" (bosque viejo con relieve bajo) y "*OldSlope*" (Bosque viejo con pendiente) en el grupo 2; y *Elaeis oleifera*, *Bactris major* y *Attalea butyracea* en el grupo 4, con preferancia por los habitats "*OldLow*" y "*swamp*" (pantano). 
 
-![Dendrograma de grupos.
-\label{fig:Dendrograma_grupos_ward_5}](Dendrograma_grupos_ward_5.png)
 
-![Mapa distribucion de sitios agrupados.
-\label{fig:mapa_ward_k5}](mapa_ward_k5.png){width=50%}
-
-![Grafico de correlacion entre valiables y grupos de sitios.
-\label{fig:Grupos_Ward_k5_variables}](Grupos_Ward_k5_variables.png)
 
 ## Análisis de diversidad
 
@@ -190,6 +169,31 @@ En diversidad alpha la Equidad de Pielou y la Ratios de Hill mostraron asociaci�
 Se detectaron autocorrelaciones mediante el I de Moran, tanto para las especies, como para las variables geomorfológicas y de suelo. Las especies que mostraron autocorrelación fueron *Astrocaryum standleyanum* con valor positivo para los órdenes 1, 2, y negativo para órdenes 5 y 6; *Elaeis oleifera* y *Oenocarpus mapora* en el orden 1, positiva y negativa respectivamente; *Socratea exorrizha* positiva para orden 1 y negativa para orden 5. Las variables geomorfológicas que tuvieron autocorrelación la presentaron solo para 1 orden, como es el caso de llanura, espolón/gajo, vertiente y vaguada. Para las variables de suelo las más destacables son: Al con valor positivo para orden 1 y negativo para orden 7; B, Ca, Zn y K en los órdenes 1-3 (positiva) y 5-8 (negativa); Mg órdenes 1-3 (positiva) y 6-8 (negativa); Fe positiva en los órdenes (1, 2) y negativa en (7, 8); Cu en órdenes 1 y 2; Mn positiva para orden 1 y negativa para el 4; P positiva en órdenes (1, 4) y negativa en los (2, 6) N 1-2 (positiva) y 4-6 (negativa); N.min 1-3 (positiva) y 7-9 (negativa); pH órdenes 1-3 (positiva) y 4-7 (negativa); pendiente y orientación media para orden 1; y elevación media, positiva para órdenes (1, 2) y negativa para (3, 4). La distribución de pH en la parcela se presenta de izquierda a derecha, hacia la izquierda se encuentran los valores de pH más bajos y hacia la derecha los más altos (ver figura \ref{fig:mapa_cuadros_pH}).
 
 Hubo autocorrelación para el orden 3 en la prueba de Mantel, con significancia para un valor de 0.001. El I de Moran con la transformada de Hellinger con y sin tendencia, muestra que *Bactris major* tiene una dependencia espacial con ciertas variables, como Ca, B y Mg, donde bajos valores de estas variables llevan a que haya abundancia significativa de esta especie en sus sitios de muestreo; esta especie se describe como calciofila [@grandtner2013dictionary]. *Elaeis oleifera* parece mostrar preferencia por variables como llanura; hábitats "*OldLow*" y "*Swamp*"; en presencia de Al esta especie puede aumentar sus valores de abundancia; y de bajos valores de N, K, Mg y elvación media. "*A. butyracea*" pareciera tener preferencia por algunas de las variables anteriores. Los sitios del grupo 4 (13, 18 y 23) son de los que presentan mayor heterogeneidad ambiental, valores de elevación media similares, cercanos valores Cu, Mn y Ca. Debido al azar con el que se presentan las especies de la familia en el área de estudio, estimo que estos modelos no predicen con gran certeza la distribución u ocurrencia de las mismas.
+
+
+![Matriz de correlacion entre sitios. En color fucsia los sitios que poseen alta asociación, y en color cian los de baja asociación.
+\label{fig:matriz_disimilaridad_hellinger}](matriz_disimilaridad_hellinger.png)
+
+![Matriz de asociacion entre especies. Los colores cian significan nula asociación, y los colores fucsia la asociación que presentan las especies.
+\label{fig:matriz_asociacion_especies}](matriz_asociacion_especies.png)
+
+![Matriz de distancia entre especies. Los colores cian denotan larga distancia Euclídea, y los colores fucsia corta distancia.
+\label{fig:matriz_distancia_especies}](matriz_distancia_especies.png)
+
+![Matriz de correlacion de variables geomorfologicas y abundancia-riqueza.
+\label{fig:matriz_correlacion_geomorf_abun_riq_spearman}](matriz_correlacion_geomorf_abun_riq_spearman.png)
+
+![Matriz de correlacion de variables suelo y abundancia-riqueza.
+\label{fig:matriz_correlacion_suelo_abun_riq_spearman}](matriz_correlacion_suelo_abun_riq_spearman.png)
+
+![Dendrograma de grupos.
+\label{fig:Dendrograma_grupos_ward_5}](Dendrograma_grupos_ward_5.png)
+
+![Mapa distribución de sitios agrupados.
+\label{fig:mapa_ward_k5}](mapa_ward_k5.png){width=50%}
+
+![Gráfico de correlación entre valiables y grupos de sitios.
+\label{fig:Grupos_Ward_k5_variables}](Grupos_Ward_k5_variables.png)
 
 # Discusión
 
@@ -205,7 +209,7 @@ Los bajos valores de asociación que presenta el grupo 4 con otras variables de 
 
 Los resultados de los análisis de autocorrelación espacial describirían por qué las especies *A. standleyanum*, *E. oleifera*, *O. mapora*, *S. exorrizha* son las más abundantes, exceptuando por *Elaeis oleifera*, que es una indicadora significativa del micro hábitat pantanoso [@legendre2019spatial] y reporta un aumento de abundancia de 1 individuo, elevando su abundancia a 17 individuos para esa fecha, actualmente ese número ha incrementado a 20 individuos.
 
-Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa como reporta [@stevenson2008determinantes]. 
+Estudios de poblaciones de especies de la familia Arecaceae también reportan que Socratea exorrizha es una especie que parece siempre presentar una abundancia significativa como reporta [@stevenson2008determinantes]. En las palmeras, se ha destacado la importancia de variables ambientales: clima, suelos, hidrología y topografía [@balslev2011species].
 
 Los resultados obtenidos en esta investigación servirán a futuro para implementar este tipo de metodología en casi cualquier área de estudio que se proponga investigar, ya que los análisis son extrapolables y adaptables a casi todos los bosques tropicales, y nos ayudarían a entender la ecología de sitios que actualmente desconocemos la estructura de su comunidad, es importante que este tipo de trabajos se sigan ralizando con frecuencia en todos los bosques del mundo a fin de observar la dinámica poblacional de distintos ambientes, marcar un punto de partida en estas áreas desconocidas y ver como las suceciones ecológicas van cambiando con el tiempo, ver como se desarrollan las especies e inventariar especies que tal vez no habíamos visto en algunos sitios debido a distintas razones o variables que tal vez no sabíamos que podían influir en la biodiversidad en el área muestreada.
 
